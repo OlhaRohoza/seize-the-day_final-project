@@ -16,7 +16,7 @@ function Sidebar() {
 
     return (
 
-        <div className="sidebar" style={{ backgroundColor: 'violet' }}>
+        <div className="sidebar" style={{ backgroundColor: 'rgba(52, 24, 233, 0.5)' ,width: '20%'}}>
             <p>Search bar: </p>
             <Searchbar />
             {/* <Calendar /> */}

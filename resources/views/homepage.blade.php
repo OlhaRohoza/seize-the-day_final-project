@@ -14,6 +14,7 @@
     
     <div id="root"></div>
     <p>here will be the main part</p>
+   
 
     <script src="{{ mix('js/homepage.js') }}"></script>
 </body>

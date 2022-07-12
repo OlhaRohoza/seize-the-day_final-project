@@ -1,0 +1,6 @@
+nav{
+    display: flex;
+    flex-direction: row;
+    height: 5em;
+    background: rgb(6, 113, 123);
+}
