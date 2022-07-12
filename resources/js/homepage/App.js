@@ -1,21 +1,28 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 import './App.css'
+import EntriesContext from './context/EntriesContext';
+import { MainContent } from './components/MainContent'
+import { BrowserRouter as Router } from 'react-router-dom';
 
 
 
 function App() {
-  return (
-    <>
-      <Navbar />
-      <div className='main--part'>
-        <Sidebar />
-      </div>
+  const [entries, setEntries] = useState([]);
 
-      <p>Some information</p>
-    </>
+  return (
+
+    <EntriesContext.Provider value={{ entries, setEntries }}>
+      <Router>
+        <Navbar />
+        <div className='main--part'>
+          <Sidebar />
+          <MainContent />
+        </div>
+      </Router>
+    </EntriesContext.Provider>
+
   );
 }
 

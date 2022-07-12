@@ -1,6 +1,6 @@
-function Button({ name }) {
+function Button({ name, handleClick }) {
     return (
-        <button>{name}</button>
+        <button type="button" onClick={handleClick} >{name} </button>
     )
 }
 export default Button;

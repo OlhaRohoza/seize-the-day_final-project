@@ -1,6 +1,18 @@
+import { useState } from 'react';
+
 function Searchbar() {
+    const [query, setQuery] = useState("")
+
+    const handleSearch = () => {
+        console.log(query);
+        setQuery('');
+    }
+
     return (
-        <input type='text' value='' />
+        <div className="search--notes"  >
+            <input type='text' placeholder="Search through entries" onChange={(e) => setQuery(e.target.value)} />
+            <input type='submit' value='search' style={{ marginLeft: '5px' }} onClick={handleSearch} />
+        </div>
     )
 }
 
