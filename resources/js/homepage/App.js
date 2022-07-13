@@ -54,10 +54,10 @@ function App() {
               <div className='main--part'>
 
                 <Sidebar />
-                <MainContent />
+
               </div>
             }
-
+            <MainContent />
 
           </div>
 
