@@ -16,7 +16,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/{path?}', [App\Http\Controllers\HomepageController::class, 'index'])->where('path', '.*');
 
-
-
-
-/* Route::get('/product/{path?}', 'ReactAppController@renderApp')->where('path', '.*'); */
+// Route::get('/user/{path?}', [App\Http\Controllers\UserController::class, 'app'])->where('path', '.*');

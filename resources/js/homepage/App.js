@@ -8,6 +8,9 @@ import axios from 'axios';
 
 
 import './App.css'
+import EntriesContext from './context/EntriesContext';
+import { MainContent } from './components/MainContent'
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Registration from './pages/Registration';
@@ -17,53 +20,73 @@ import Searchbar from './components/Searchbar';
 
 function App() {
 
-  const [user,setUser] = useState(null);
+  const [user, setUser] = useState(null);
+  const [entries, setEntries] = useState([]);
 
-  const  LoadUser= async()=>{
-    
+  const LoadUser = async () => {
+
     try {
       const data = await axios.get('/api/user');
       setUser(data.data)
     }
-  catch(error) {
-    setUser(null)
-     
-}
-        
+    catch (error) {
+      setUser(null)
+
+    }
+
   }
-  useEffect (()=>{
+  useEffect(() => {
     LoadUser()
 
-  },[]
-   )
+  }, []
+  )
 
   return (
-    <AppContext.Provider value={ { user, setUser}  }>
-      <div>
-          
-            <Router>
-              
-                <Navbar />
-        
-                <Routes>
-                  <Route path="/" element={<Login />} />
-                  <Route path="/login" element={<Login/>}/>
-                  <Route path="/registration" element={<Registration/>}/>
-                  <Route path="/Logout" element={<Logout/>}/>
-                  
-                </Routes>
-              
-              
-            </Router>
-            <div>
-              <Sidebar/>
+    <AppContext.Provider value={{ user, setUser }}>
+      <EntriesContext.Provider value={{ entries, setEntries }}>
+
+
+        <div>
+
+          <Router>
+
+            <Navbar />
+            <div className='main--part'>
+              <Sidebar />
+              <MainContent />
             </div>
-            <div>
-              <Searchbar />
-            </div>
-          
-      </div>
+
+            <Routes>
+              <Route path="/" element={<Login />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/registration" element={<Registration />} />
+              <Route path="/Logout" element={<Logout />} />
+
+            </Routes>
+
+
+          </Router>
+          <div>
+            <Sidebar />
+          </div>
+          <div>
+            <Searchbar />
+          </div>
+
+        </div>
+      </EntriesContext.Provider>
     </AppContext.Provider>
+
+
+    // return (
+
+
+    //   <Router>
+    //     <Navbar />
+
+    //   </Router>
+
+
   );
 }
 

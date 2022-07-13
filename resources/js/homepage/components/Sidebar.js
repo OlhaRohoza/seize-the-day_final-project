@@ -1,64 +1,109 @@
 import Button from "./Button";
 import Searchbar from './Searchbar';
-// import { Calendar } from 'react-date-range';
-// import 'react-date-range/dist/styles.css'; // main css file
-// import 'react-date-range/dist/theme/default.css'; // theme css file
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import axios from 'axios';
+import EntriesContext from "../context/EntriesContext";
+import { useNavigate } from "react-router-dom";
 
 function Sidebar() {
     const [startDateInline, setStartDateInline] = useState(new Date());
     const [startWeek, setStartWeek] = useState(new Date());
     const [startMonth, setStartMonth] = useState(new Date());
     const [startYear, setStartYear] = useState(new Date());
+    const navigate = useNavigate();
 
+    const { setEntries } = useContext(EntriesContext);
+
+    const handleAll = () => {
+        console.log('all entries');
+
+    }
+
+    const handleWeek = () => {
+        console.log('week report');
+        const input = document.querySelector('.Calendar--Week');
+        console.log(input.value);
+
+
+    }
+
+    const handleMonth = async () => {
+        console.log('month report');
+        const input = document.querySelector('.Calendar--Month');
+        const hey = input.value.split(' ');
+        console.log(hey);
+
+        try {
+            const res = [
+                {
+                    date: '',
+                    note: '',
+                }
+            ]
+
+            setEntries(res)
+            navigate('/user/report/month')
+        } catch (err) {
+            console.log(err.message)
+        }
+    }
+
+    const handleYear = () => {
+        console.log('year report');
+        const input = document.querySelector('.Calendar--Year');
+        console.log(input.value);
+    }
+
+    const handleRandom = () => {
+        console.log('Random day');
+    }
 
     return (
 
-        <div className="sidebar" style={{ backgroundColor: 'rgba(52, 24, 233, 0.5)' ,width: '20%'}}>
-            <p>Search bar: </p>
-            <Searchbar />
-            {/* <Calendar /> */}
+        <div className="sidebar" style={{ backgroundColor: '#f0dbff' }}>
 
-            <DatePicker name='Calenda--Inline'
+            <Searchbar />
+
+            <DatePicker className='Calendar--Inline'
                 selected={startDateInline}
                 onChange={(date) => setStartDateInline(date)}
                 inline
             />
 
-            <Button name='All entries' />
+            <Button name='All entries' handleClick={handleAll} />
 
-            <DatePicker name='Calendar--Week'
+            <DatePicker className='Calendar--Week'
                 selected={startWeek}
                 onChange={(date) => setStartWeek(date)}
                 dateFormat="ww"
                 showFullMonthYearPicker
             />
-            <Button name='Week report' />
+            <Button name='Week report' handleClick={handleWeek} />
 
-            <DatePicker name='Calendar--Month'
+            <DatePicker className='Calendar--Month'
                 selected={startMonth}
                 onChange={(date) => setStartMonth(date)}
                 dateFormat="MMMM yyyy"
                 showMonthYearPicker
                 showFullMonthYearPicker
             />
-            <Button name='Month report' />
+            <Button name='Month report' handleClick={handleMonth} />
 
-            <DatePicker name='Calendar--Year'
+            <DatePicker className='Calendar--Year'
                 selected={startYear}
                 onChange={(date) => setStartYear(date)}
                 showYearPicker
                 dateFormat="yyyy"
             />
-            <Button name='Year report' />
+            <Button name='Year report' handleClick={handleYear} />
 
 
 
 
 
-            <Button name='Random date' />
+            <Button name='Random date' handleClick={handleRandom} />
         </div>
 
     )
