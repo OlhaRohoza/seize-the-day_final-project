@@ -38,39 +38,30 @@ function App() {
   }, []
   )
 
-  return (
-    <AppContext.Provider value={{ user, setUser }}>
-      <EntriesContext.Provider value={{ entries, setEntries }}>
-
-        <Router>
-
-          <div>
-
-            <Navbar />
-            <div className='main--part'>
-              {
-                !!user &&
-                <Sidebar />
-              }
-              <MainContent />
+  
+    return (
+      <AppContext.Provider value={{ user, setUser }}>
+        <EntriesContext.Provider value={{ entries, setEntries }}>
+  
+          <Router>
+  
+            <div>
+  
+              <Navbar />
+              <div className='main--part'>
+                {
+                  !!user &&
+                  <Sidebar />
+                }
+                <MainContent />
+              </div>
             </div>
-          </div>
-
-        </Router>
-      </EntriesContext.Provider>
-    </AppContext.Provider>
-
-
-    // return (
-
-
-    //   <Router>
-    //     <Navbar />
-
-    //   </Router>
-
-
-  );
+  
+          </Router>
+        </EntriesContext.Provider>
+      </AppContext.Provider>
+  
+    );
 }
 
 export default App;
