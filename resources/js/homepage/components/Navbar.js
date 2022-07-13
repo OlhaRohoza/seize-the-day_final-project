@@ -2,29 +2,53 @@
 
 import './NavbarStyle.css';
 import { Link } from 'react-router-dom';
+import UserContext from '../UserContext';
+import { useContext } from 'react';
 
 
 
 
 function NavBar() {
+  const {user,setUser} = useContext(UserContext);
   return (
    <nav>
-        <div>SEIZE THE DAY</div>
-        
-        <div className='login-btn'>
-         <Link to='/home'>
-            Home
-         </Link>
+        <div className='logo'><h1 className='logo-anim'>SEIZE THE DAY</h1> </div>
+        <div className='link'>
+          
+          <div className='login-btn'>
+            <Link to='/'>
+                Home
+            </Link>
+          </div>
+          {
+            user ? "" 
+            : (
+<>
+              
+                <div className='login-btn'>
+              <Link to='/login'>
+                  Login
+              </Link>
+            </div>
+            <div className='login-btn'>
+              <Link to='/registration'>
+                  Register
+              </Link>
+             
+           </div> 
+          
+</>
+
+            )
+
+          }
+          
+         <div className='login-btn'>
+         <Link to='/Logout'>
+              Logout
+            </Link>
          </div>
-        <div className='login-btn'>
-        <Link to='/login'>
-            Login
-        </Link>
-       </div>
-        <div className='login-btn'>
-        <Link to='/registration'>
-            Register
-        </Link>
+       
         
        </div>
        

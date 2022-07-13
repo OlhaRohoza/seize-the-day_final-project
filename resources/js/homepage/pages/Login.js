@@ -1,5 +1,6 @@
 
-import React, { useState, useEffect } from 'react'
+import axios from 'axios';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './App.css';
 /* import mail from "/images/email.png";
@@ -8,6 +9,8 @@ import profile from "/images/icon.jpg"; */
 
 
 function Login() {
+
+    
     
     const LOCAL_STORAGE_KEY = "Info";
 
@@ -25,16 +28,25 @@ function Login() {
         localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(Info))
     },[Info])
 
-    const login = (e) =>{
+    const login = async (e) =>{
         e.preventDefault()
 
         if (!Info.email || !Info.password) {
             return alert("Complete all the fields!!!")
         }
 
-        const res = ''
+        const response = await axios.post('/login', Info)
+        console.log(response.data);
 
-    }
+        const data = await axios.get('/api/user')
+        console.log(data.data);
+
+        const response_data = setUser(data.data);
+        console.log(response_data);
+
+        // setUser(data.data)
+    }  
+    
 
     return (
         <form onSubmit={login} >
@@ -45,20 +57,24 @@ function Login() {
                             <h1>Login</h1>
                             <div className='mail-id'>
                                 {/* <img src={mail} alt="emial" className='email' /> */}
-                                <input type="email" placeholder='Enter Email' className='fill' value={Info.email} onChange={(e) => setInfo({...Info, email: e.target.value})}/>
+                                <input type="email" placeholder='Enter Email' className='fill' autoComplete='off' value={Info.email} onChange={(e) => setInfo({...Info, email: e.target.value})}/>
                             </div>
                             <div className='mail-id'>
                                 {/* <img src={lock} alt="emial" className='email' /> */}
-                                <input type="password" placeholder='Enter New Password' className='fill' value={Info.password} onChange={(e) => setInfo({...Info, password: e.target.value})}/>
+                                <input type="password" placeholder='Enter New Password' className='fill' autoComplete='off' value={Info.password} onChange={(e) => setInfo({...Info, password: e.target.value})}/>
                             </div>
                             <div>
                                 <button >Submit</button>
                             </div>
                           
                            
-                            <div className='reg-link'>
+                            <div className='btn'>
                                 <p>If Account exist then</p><Link className='link' to='/registration'><a>Register!!!</a></Link>
+                                <br />
+                                
                             </div>
+                            <Link className='mn-link' to='/Logout'><a>!!Logout!!!</a></Link>
+                            
                         </div>
                     </div>
                 </div>
