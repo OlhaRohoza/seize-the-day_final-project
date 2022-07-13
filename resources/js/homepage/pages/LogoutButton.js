@@ -21,28 +21,9 @@ function LogoutButton() {
 
 
     return (
+
         <div>
-            <form onSubmit={handleLogout} >
-                <div className='login-box'>
-                    <div className='sub-main'>
-                        <div>
-                            <div className='user-box'>
-                                <h1>Logout</h1>
-                                <div className='reg-link'>
-                                    <h2>Are you Logout !!!</h2>
-                                </div>
-                                <div>
-                                    <button>Logout</button>
-                                </div>
-
-
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>
-
+            <button onClick={handleLogout} >Logout</button>
         </div>
     )
 }
