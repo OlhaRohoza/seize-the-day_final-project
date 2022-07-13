@@ -11,8 +11,7 @@ import EntriesContext from './context/EntriesContext';
 import { MainContent } from './components/MainContent'
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Registration from './pages/Registration';
-import Searchbar from './components/Searchbar';
+
 
 
 
@@ -21,7 +20,7 @@ function App() {
   const [user, setUser] = useState(null);
   const [entries, setEntries] = useState([]);
 
-  const LoadUser = async () => {
+  const loadUser = async () => {
 
     try {
       const data = await axios.get('/api/user');
@@ -34,7 +33,7 @@ function App() {
 
   }
   useEffect(() => {
-    LoadUser()
+    loadUser()
 
   }, []
   )
@@ -49,14 +48,14 @@ function App() {
 
             <Navbar />
 
-            {
-              !!user &&
+              
               <div className='main--part'>
-
-                <Sidebar />
+                {
+                  !!user && <Sidebar />
+                }
+                
                 <MainContent />
               </div>
-            }
 
 
           </div>
