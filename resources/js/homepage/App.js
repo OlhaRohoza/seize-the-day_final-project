@@ -48,17 +48,17 @@ function App() {
           <div>
 
             <Navbar />
+            <div className='main--part'>
+              {
+                !!user &&
 
-            {
-              !!user &&
-              <div className='main--part'>
 
                 <Sidebar />
 
-              </div>
-            }
-            <MainContent />
 
+              }
+              <MainContent />
+            </div>
           </div>
 
         </Router>
