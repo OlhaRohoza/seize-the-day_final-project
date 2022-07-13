@@ -6,6 +6,7 @@ import { useContext, useState } from 'react';
 import axios from 'axios';
 import EntriesContext from "../context/EntriesContext";
 import { useNavigate } from "react-router-dom";
+import UserContext from "../UserContext";
 
 function Sidebar() {
     const [startDateInline, setStartDateInline] = useState(new Date());
@@ -15,6 +16,9 @@ function Sidebar() {
     const navigate = useNavigate();
 
     const { setEntries } = useContext(EntriesContext);
+    const { user } = useContext(UserContext);
+
+    console.log(user.id)
 
     const handleAll = () => {
         console.log('all entries');
@@ -44,7 +48,9 @@ function Sidebar() {
             ]
 
             setEntries(res)
+
             navigate('/user/report/month')
+
         } catch (err) {
             console.log(err.message)
         }

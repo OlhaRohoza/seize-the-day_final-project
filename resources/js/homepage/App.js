@@ -2,15 +2,13 @@ import React, { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Login from './pages/Login';
 import Sidebar from './components/Sidebar';
-import Logout from './pages/Logout';
+import Logout from './pages/LogoutButton';
 import AppContext from './UserContext';
 import axios from 'axios';
-
 
 import './App.css'
 import EntriesContext from './context/EntriesContext';
 import { MainContent } from './components/MainContent'
-import { BrowserRouter as Router } from 'react-router-dom';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Registration from './pages/Registration';
@@ -45,35 +43,25 @@ function App() {
     <AppContext.Provider value={{ user, setUser }}>
       <EntriesContext.Provider value={{ entries, setEntries }}>
 
+        <Router>
 
-        <div>
-
-          <Router>
+          <div>
 
             <Navbar />
-            <div className='main--part'>
-              <Sidebar />
-              <MainContent />
-            </div>
 
-            <Routes>
-              <Route path="/" element={<Login />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/registration" element={<Registration />} />
-              <Route path="/Logout" element={<Logout />} />
+            {
+              !!user &&
+              <div className='main--part'>
 
-            </Routes>
+                <Sidebar />
+                <MainContent />
+              </div>
+            }
 
 
-          </Router>
-          <div>
-            <Sidebar />
-          </div>
-          <div>
-            <Searchbar />
           </div>
 
-        </div>
+        </Router>
       </EntriesContext.Provider>
     </AppContext.Provider>
 
