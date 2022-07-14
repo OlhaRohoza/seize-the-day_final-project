@@ -5,6 +5,7 @@ import Sidebar from './components/Sidebar';
 import Logout from './pages/LogoutButton';
 import AppContext from './UserContext';
 import axios from 'axios';
+import RandomDay from './pages/RandomDay';
 
 import './App.css'
 import EntriesContext from './context/EntriesContext';
@@ -56,6 +57,7 @@ function App() {
                 <MainContent />
               </div>
             </div>
+           
   
           </Router>
         </EntriesContext.Provider>

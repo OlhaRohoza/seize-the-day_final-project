@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\EntryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,4 +17,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/{path?}', [App\Http\Controllers\HomepageController::class, 'index'])->where('path', '.*');
 
-// Route::get('/user/{path?}', [App\Http\Controllers\UserController::class, 'app'])->where('path', '.*');
+Route::get('/user/day', [App\Http\Controllers\EntryController::class, 'index']);
+Route::post('/user/day', [App\Http\Controllers\EntryController::class, 'store']);

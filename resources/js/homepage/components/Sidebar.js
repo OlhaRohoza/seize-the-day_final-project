@@ -7,7 +7,7 @@ import axios from 'axios';
 import EntriesContext from "../context/EntriesContext";
 import { useNavigate } from "react-router-dom";
 import UserContext from "../UserContext";
-
+import RandomDay from "../pages/RandomDay";
 function Sidebar() {
     const [startDateInline, setStartDateInline] = useState(new Date());
     const [startWeek, setStartWeek] = useState(new Date());
@@ -64,6 +64,7 @@ function Sidebar() {
 
     const handleRandom = () => {
         console.log('Random day');
+        navigate('/user/day')
     }
 
     return (
