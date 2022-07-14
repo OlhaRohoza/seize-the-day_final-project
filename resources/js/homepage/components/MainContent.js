@@ -5,8 +5,6 @@ export function MainContent() {
     return (
         <div className="main--content">
 
-            <p>FOR EACH PAGE  </p>
-
             <Routing />
 
         </div>

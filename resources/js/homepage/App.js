@@ -8,10 +8,9 @@ import axios from 'axios';
 import RandomDay from './pages/RandomDay';
 
 import './App.css'
-import EntriesContext from './context/EntriesContext';
 import { MainContent } from './components/MainContent'
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 
 
@@ -19,8 +18,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 function App() {
 
   const [user, setUser] = useState(null);
-  const [entries, setEntries] = useState([]);
-
   const loadUser = async () => {
 
     try {
@@ -39,31 +36,28 @@ function App() {
   }, []
   )
 
-  
-    return (
-      <AppContext.Provider value={{ user, setUser }}>
-        <EntriesContext.Provider value={{ entries, setEntries }}>
-  
-          <Router>
-  
-            <div>
-  
-              <Navbar />
-              <div className='main--part'>
-                {
-                  !!user &&
-                  <Sidebar />
-                }
-                <MainContent />
-              </div>
-            </div>
-           
-  
-          </Router>
-        </EntriesContext.Provider>
-      </AppContext.Provider>
-  
-    );
+  return (
+    <AppContext.Provider value={{ user, setUser }}>
+
+      <Router>
+
+        <div>
+
+          <Navbar />
+          <div className='main--part'>
+            {
+              !!user &&
+              <Sidebar />
+            }
+            <MainContent />
+          </div>
+        </div>
+
+      </Router>
+
+    </AppContext.Provider>
+
+  );
 }
 
 export default App;

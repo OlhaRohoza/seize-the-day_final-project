@@ -1,26 +1,28 @@
-nav{
-    display: flex;
-    flex-direction: row;
-    height: 5em;
-    background: rgb(6, 113, 123);
-   
-    align-content: space-between;
-    justify-content: center;
-    
+* {
+  box-sizing: border-box;
+}
 
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  height: 5em;
+  background: #f0dbff;
+  padding: 2em;
 }
-.logo{
-    
-    color: rgb(10, 244, 244);
-    font-size: 20px;
+
+.logo h3 {
+  color: #38184f;
+  font-size: 2em;
 }
-.logo-anim {
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 2px;
-}
-  /* .logo-anim {
+
+/* .logo-anim {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+} */
+
+/* .logo-anim {
     top: -100%;
     right: 0;
     width: 2px;
@@ -39,44 +41,47 @@ nav{
     }
   } */
 
-.link{
-    display: flex;
-    
-    flex-direction: row;
-    justify-content: space-between;
-    align-content: center;
-    padding-top: 2em;
-   margin-left: 40em;
-   
-    
-    
-}
-a{
-    position: relative;
-    display: inline-block;
-    padding: 8px 8px;
-    color: #03e9f4;
-    font-size: 16px;
-    text-decoration: none;
-    text-transform: uppercase;
-    overflow: hidden;
-    transition: .5s;
-    margin-top: 10px;
-    margin-left: 30%;
-    
-}
-a:hover{
-    background: #03e9f4;
-    color: rgb(81, 2, 2);
-    border-radius: 3px;
-    box-shadow: 0 0 5px #03e9f4,
-                0 0 25px #03e9f4,
-                0 0 50px #03e9f4,
-                0 0 100px #03e9f4;
+/* .link {
+  display: flex;
+
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  padding-top: 2em;
+  margin-left: 40em;
+
+
 
 }
-.login-btn{
-    
-    margin-right: 2em;
-    
+
+a {
+  position: relative;
+  display: inline-block;
+  padding: 8px 8px;
+  color: #03e9f4;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 10px;
+  margin-left: 30%;
+
 }
+
+a:hover {
+  background: #03e9f4;
+  color: rgb(81, 2, 2);
+  border-radius: 3px;
+  box-shadow: 0 0 5px #03e9f4,
+    0 0 25px #03e9f4,
+    0 0 50px #03e9f4,
+    0 0 100px #03e9f4;
+
+}
+
+.login-btn {
+
+  margin-right: 2em;
+
+} */
