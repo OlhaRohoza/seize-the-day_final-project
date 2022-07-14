@@ -22,7 +22,7 @@ function Sidebar() {
 
     const handleAll = () => {
         console.log('all entries');
-
+        
     }
 
     const handleWeek = () => {

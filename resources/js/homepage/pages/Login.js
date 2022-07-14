@@ -1,7 +1,8 @@
 
 import axios from 'axios';
-import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect, useContext } from 'react';
+import { Link,useNavigate  } from 'react-router-dom';
+import UserContext from '../UserContext';
 import './App.css';
 /* import mail from "/images/email.png";
 import lock from "/images/lock.png";
@@ -10,6 +11,7 @@ import profile from "/images/icon.jpg"; */
 
 function Login() {
 
+    //  const history = useHistory();
     const LOCAL_STORAGE_KEY = "Info";
     const navigate = useNavigate();
 
@@ -17,6 +19,8 @@ function Login() {
         email: "",
         password: ""
     });
+
+    const { setUser } = useContext(UserContext)
 
     useEffect(() => {
         const retriveContacts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
@@ -34,18 +38,17 @@ function Login() {
             return alert("Complete all the fields!!!")
         }
 
-        const response = await axios.post('/login', Info)
-        console.log(response.data);
+        await axios.post('/login', Info)
 
         const data = await axios.get('/api/user')
         console.log(data.data);
 
-        const response_data = setUser(data.data);
-        console.log(response_data);
-
-        setUser(data.data);
+        await setUser(data.data);
+        
         return navigate('/user');
+
     }
+    
 
 
     return (
@@ -70,10 +73,10 @@ function Login() {
 
                             <div className='btn'>
                                 <p>If Account exist then</p><Link className='link' to='/registration'><a>Register!!!</a></Link>
-                                <br />
+                                
 
                             </div>
-                            <Link className='mn-link' to='/Logout'><a>!!Logout!!!</a></Link>
+                            <Link className='mn-link' to='/ldogout'><a>!!Logout!!!</a></Link>
 
                         </div>
                     </div>
