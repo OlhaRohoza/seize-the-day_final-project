@@ -4,9 +4,23 @@ import axios from "axios";
 
 export const getEntries = async (payload) => {
 
-    const url = `/api/${payload.type}`;
+    if (payload.type === 'all') {
 
-    const res = await axios.get(url);
+        let url = `/api/${payload.type}`;
+        const res = await axios.get(url);
+        return res.data;
 
-    return res.data
+    } else if (payload.type === 'year') {
+
+        let url = `/api/${payload.type}/${payload.value}`;
+        const res = await axios.get(url);
+        return res.data;
+
+    } else if (payload.type === 'month') {
+        let url = `/api/${payload.type}/${payload.value}`;
+        const res = await axios.get(url);
+        return res.data;
+    }
+
+
 }

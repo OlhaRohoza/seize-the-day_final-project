@@ -47,3 +47,29 @@ button {
   display: flex;
   flex-direction: column;
 }
+
+.page--year {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5em;
+  margin: 0.5em;
+}
+
+.page--year--quarter {
+  display: flex;
+  justify-content: space-between;
+}
+
+.page--year--month {
+  display: flex;
+  text-align: center;
+  align-content: center;
+  flex-direction: column;
+  width: 250px;
+  border: 0.05em solid silver;
+  border-radius: 5px;
+  margin: 0.5em;
+  padding: 0.5em;
+}

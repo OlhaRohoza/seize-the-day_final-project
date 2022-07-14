@@ -7,10 +7,9 @@ export function All() {
     const [entries, setEntries] = useState([])
     const [loadingEntries, setLoadingEntries] = useState(false)
 
-    console.log(entries);
+    // console.log(entries);
 
     const [currentPage, setCurrentPage] = useState(0);
-
     const [perPage, setPerPage] = useState(25);
 
     const fetchData = async () => {
@@ -31,8 +30,6 @@ export function All() {
     }, [])
 
     const navigate = useNavigate()
-
-
 
     return (
         <Fragment>
@@ -64,12 +61,16 @@ export function All() {
                                     </tbody>
 
                                 </table>
-                                {
-                                    !!currentPage && <button onClick={() => setCurrentPage(!currentPage ? currentPage : currentPage - 1)}>back</button>
-                                }
-                                {
-                                    entries.length - ((currentPage || 1) * perPage) > perPage && <button onClick={() => setCurrentPage(currentPage + 1)}>next</button>
-                                }
+                                <div className="page--all--buttons" style={{ textAlign: 'center' }}>
+                                    {
+                                        !!currentPage && <button onClick={() => setCurrentPage(!currentPage ? currentPage : currentPage - 1)}>back</button>
+                                    }
+                                    {
+                                        entries.length - ((currentPage || 1) * perPage) > perPage && <button onClick={() => setCurrentPage(currentPage + 1)}>next</button>
+                                    }
+
+                                </div>
+
                             </>) :
                             (<> <p>You have no entries yet. You can create here: </p>
                                 <Link to='/user' />

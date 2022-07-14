@@ -5,6 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import UserContext from "../UserContext";
 import Button from "./Button";
 import Searchbar from './Searchbar';
+import moment from 'moment';
 
 
 function Sidebar() {
@@ -31,47 +32,6 @@ function Sidebar() {
 
     }
 
-    const handleMonth = async () => {
-        console.log('month report');
-        const input = document.querySelector('.Calendar--Month');
-        const hey = input.value.split(' ');
-        console.log(hey);
-
-        try {
-            const res = [
-                {
-                    date: '',
-                    note: '',
-                }
-            ]
-
-            setEntries(res)
-
-            navigate('/user/report/month')
-
-        } catch (err) {
-            console.log(err.message)
-        }
-    }
-
-    const handleYear = () => {
-        console.log('year report');
-        const input = document.querySelector('.Calendar--Year');
-        console.log(input.value);
-
-        const url = `http://www.seize-the-day.test/api/${user.id}/year/${input.value}`;
-
-        const fetchData = async () => {
-            const resonse = await fetch(url);
-            console.log(resonse);
-            const data = await resonse.json();
-            console.log(data);
-            // setEntries(data);
-            // navigate('/user/report/year');
-        }
-        fetchData();
-    }
-
     const handleRandom = () => {
         console.log('Random day');
     }
@@ -79,7 +39,7 @@ function Sidebar() {
     return (
 
         <div className="sidebar" style={{ backgroundColor: '#f0dbff' }}>
-
+            <br />
             <Searchbar />
 
             <DatePicker className='Calendar--Inline'
@@ -90,13 +50,13 @@ function Sidebar() {
 
             <Button name='All entries' handleClick={() => navigate('/user/all')} />
 
-            <DatePicker className='Calendar--Week'
+            {/* <DatePicker className='Calendar--Week'
                 selected={startWeek}
                 onChange={(date) => setStartWeek(date)}
                 dateFormat="ww"
                 showFullMonthYearPicker
             />
-            <Button name='Week report' handleClick={handleWeek} />
+            <Button name='Week report' handleClick={handleWeek} /> */}
 
             <DatePicker className='Calendar--Month'
                 selected={startMonth}
@@ -105,7 +65,7 @@ function Sidebar() {
                 showMonthYearPicker
                 showFullMonthYearPicker
             />
-            <Button name='Month report' handleClick={handleMonth} />
+            <Button name='Month report' handleClick={() => navigate(`/user/report/month/${moment(startMonth).format('YYYY-MM')}`)} />
 
             <DatePicker className='Calendar--Year'
                 selected={startYear}
@@ -113,11 +73,7 @@ function Sidebar() {
                 showYearPicker
                 dateFormat="yyyy"
             />
-            <Button name='Year report' handleClick={handleYear} />
-
-
-
-
+            <Button name='Year report' handleClick={() => navigate(`/user/report/year/${moment(startYear).format('YYYY')}`)} />
 
             <Button name='Random date' handleClick={handleRandom} />
         </div>
