@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { All } from '../pages/All';
 import { Entry } from '../pages/Entry';
 import Login from '../pages/Login';
 import LogoutButton from '../pages/LogoutButton';
@@ -10,6 +11,7 @@ export function Routing() {
         <Routes>
             <Route path="/" element={<span>Home page</span>} />
             <Route path="/user" element={<Entry />} />
+            <Route path="/user/all" element={<All />} />
             <Route path="/user/day" element={<span>Here we see saved Entry and edit it / or it shows us the Certain/Random Entry</span>} />
             <Route path="/user/report/:period" element={<Report />} />
             <Route path="/user/search" element={<span>Here we have result of SEARCH / or ALL entries</span>} />

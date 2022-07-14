@@ -12,15 +12,14 @@ import LogoutButton from '../pages/LogoutButton';
 function NavBar() {
   const { user, setUser } = useContext(UserContext);
   return (
-    <nav>
-      <div className='logo'><h1 className='logo-anim'>SEIZE THE DAY</h1> </div>
+    <nav className='navigation'>
+      <div className='login-btn'>
+        <Link to='/'>
+          Home
+        </Link>
+      </div>
+      <div className='logo'><h3 className='logo-anim'>SEIZE THE DAY</h3> </div>
       <div className='link'>
-
-        <div className='login-btn'>
-          <Link to='/'>
-            Home
-          </Link>
-        </div>
         {
           user ? (
             <LogoutButton />
@@ -45,8 +44,6 @@ function NavBar() {
             )
 
         }
-
-
       </div>
 
     </nav>

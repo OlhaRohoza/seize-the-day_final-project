@@ -1,14 +1,10 @@
 import React, { Fragment } from "react";
 import { useParams } from "react-router-dom";
-import EntriesContext from "../context/EntriesContext";
 import { useContext } from 'react';
 
 function Report() {
 
     const params = useParams()
-
-    const { entries } = useContext(EntriesContext);
-    console.log(entries);
 
     return (
         <Fragment>

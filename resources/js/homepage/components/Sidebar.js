@@ -1,12 +1,11 @@
-import Button from "./Button";
-import Searchbar from './Searchbar';
+import { useContext, useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { useContext, useState } from 'react';
-import axios from 'axios';
-import EntriesContext from "../context/EntriesContext";
-import { useNavigate } from "react-router-dom";
 import UserContext from "../UserContext";
+import Button from "./Button";
+import Searchbar from './Searchbar';
+
 
 function Sidebar() {
     const [startDateInline, setStartDateInline] = useState(new Date());
@@ -15,15 +14,7 @@ function Sidebar() {
     const [startYear, setStartYear] = useState(new Date());
     const navigate = useNavigate();
 
-    const { setEntries } = useContext(EntriesContext);
     const { user } = useContext(UserContext);
-
-    console.log(user.id)
-
-    const handleAll = () => {
-        console.log('all entries');
-
-    }
 
     const handleWeek = () => {
         console.log('week report');
@@ -60,6 +51,18 @@ function Sidebar() {
         console.log('year report');
         const input = document.querySelector('.Calendar--Year');
         console.log(input.value);
+
+        const url = `http://www.seize-the-day.test/api/${user.id}/year/${input.value}`;
+
+        const fetchData = async () => {
+            const resonse = await fetch(url);
+            console.log(resonse);
+            const data = await resonse.json();
+            console.log(data);
+            // setEntries(data);
+            // navigate('/user/report/year');
+        }
+        fetchData();
     }
 
     const handleRandom = () => {
@@ -78,7 +81,7 @@ function Sidebar() {
                 inline
             />
 
-            <Button name='All entries' handleClick={handleAll} />
+            <Button name='All entries' handleClick={() => navigate('/user/all')} />
 
             <DatePicker className='Calendar--Week'
                 selected={startWeek}
