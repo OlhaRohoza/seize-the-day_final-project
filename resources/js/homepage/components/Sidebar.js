@@ -16,6 +16,13 @@ function Sidebar() {
 
     const { user } = useContext(UserContext);
 
+    console.log(user.id)
+
+    const handleAll = () => {
+        console.log('all entries');
+
+    }
+
     const handleWeek = () => {
         console.log('week report');
         const input = document.querySelector('.Calendar--Week');
