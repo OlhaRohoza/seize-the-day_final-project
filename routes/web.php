@@ -17,5 +17,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/{path?}', [App\Http\Controllers\HomepageController::class, 'index'])->where('path', '.*');
 
-Route::get('/user/day', [App\Http\Controllers\EntryController::class, 'index']);
+Route::get('/user/day/{period}', [App\Http\Controllers\EntryController::class, 'index']);
 Route::post('/user/day', [App\Http\Controllers\EntryController::class, 'store']);

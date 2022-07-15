@@ -5,7 +5,6 @@ import Sidebar from './components/Sidebar';
 import Logout from './pages/LogoutButton';
 import AppContext from './UserContext';
 import axios from 'axios';
-import RandomDay from './pages/RandomDay';
 
 import './App.css'
 import { MainContent } from './components/MainContent'

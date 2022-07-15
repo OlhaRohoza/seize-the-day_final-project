@@ -13,6 +13,8 @@ class EntryController extends Controller
     {
         $id = Auth::user()->id;
 
+$request->query('date');
+
         if ($period == 'all') {
 
             $values = Entry::orderBy('date')->where('user_id', $id)->get();
@@ -20,7 +22,11 @@ class EntryController extends Controller
             return $values;
         } else if ($period == 'day') {
 
-            $values = Entry::where('user_id', $id)->findOrFail($id);
+            $date = $request->input('date');
+
+
+
+            $values = Entry::where('user_id', $id)->where('date',$date)->first();
 
             return $values;
         } else if ($period == 'month') {

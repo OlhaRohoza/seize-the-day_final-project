@@ -6,12 +6,16 @@
   display: flex;
   justify-content: space-between;
   height: 5em;
-  background: #f0dbff;
+  background: #85b2a4;
   padding: 2em;
+}
+body{
+  background: 
+  #007169;
 }
 
 .logo h3 {
-  color: #38184f;
+  color: #47483e;
   font-size: 2em;
 }
 
@@ -85,3 +89,21 @@ a:hover {
   margin-right: 2em;
 
 } */
+a{
+  color: #d2caa2;
+  text-decoration: none;
+  padding: 8px 8px;
+  
+}
+a:hover{
+  color: #77A8A3;
+}
+.link{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: .3em;
+}
+.login-btn{
+  padding-top: 1.3em;
+}

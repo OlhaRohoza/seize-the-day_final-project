@@ -35,9 +35,12 @@ body {
 .main--content {
   padding: 0.5em;
 }
-
+input{
+  background: transparent;
+  color: #85b2a4;
+}
 button {
-  background-color: #c87cff;
+  background-color: #007169;
   height: 2em;
   border: silver;
   border-radius: 0.5em;
@@ -46,4 +49,7 @@ button {
 .entry {
   display: flex;
   flex-direction: column;
+}
+.mont{
+  color:#85b2a4 ;
 }

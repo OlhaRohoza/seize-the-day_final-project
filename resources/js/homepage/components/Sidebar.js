@@ -3,10 +3,10 @@ import { useNavigate } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import UserContext from "../UserContext";
-import RandomDay from "../pages/RandomDay";
+import Day from "../pages/Day";
 import Button from "./Button";
 import Searchbar from './Searchbar';
-
+import './sidebar.css';
 
 function Sidebar() {
     const [startDateInline, setStartDateInline] = useState(new Date());
@@ -80,7 +80,7 @@ function Sidebar() {
 
     return (
 
-        <div className="sidebar" style={{ backgroundColor: '#f0dbff' }}>
+        <div className="sidebar" >
 
             <Searchbar />
 
