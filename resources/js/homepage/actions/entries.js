@@ -1,7 +1,5 @@
 import axios from "axios";
 
-
-
 export const getEntries = async (payload) => {
 
     if (payload.type === 'all') {
@@ -17,10 +15,19 @@ export const getEntries = async (payload) => {
         return res.data;
 
     } else if (payload.type === 'month') {
-        let url = `/api/${payload.type}/${payload.value}`;
+
+        let url = `/api/${payload.type}/${payload.value1}/${payload.value2}`;
         const res = await axios.get(url);
         return res.data;
+
     }
 
+}
 
+export const searchEntries = async (phrase) => {
+
+    const res = await axios.get('/api/search/' + phrase);
+    console.log(res);
+
+    return res.data
 }

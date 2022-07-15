@@ -4,21 +4,35 @@ import { Entry } from '../pages/Entry';
 import Login from '../pages/Login';
 import Registration from '../pages/Registration';
 import { YearPage } from '../pages/YearPage';
-import { MonthPage } from '../pages/MonthPage'
+import { MonthPage } from '../pages/MonthPage';
+import { Homepage } from '../pages/Homepage';
+import { Fragment, useContext } from 'react';
+import UserContext from '../UserContext';
+import { Search } from '../pages/Search';
 
 export function Routing() {
+    const { user } = useContext(UserContext);
     return (
         <Routes>
-            <Route path="/" element={<span>Home page</span>} />
-            <Route path="/user" element={<Entry />} />
-            <Route path="/user/all" element={<All />} />
-            <Route path="/user/day" element={<span>Here we see saved Entry and edit it / or it shows us the Certain/Random Entry</span>} />
-            <Route path="/user/report/month/:period" element={<MonthPage />} />
-            <Route path="/user/report/year/:year" element={<YearPage />} />
-            <Route path="/user/search" element={<span>Here we have result of SEARCH / or ALL entries</span>} />
+            <Route path="/" element={<Homepage />} />
+            {
+                user ? <Fragment>
+                    <Route path="/user" element={<Entry />} />
+                    <Route path="/user/all" element={<All />} />
+                    <Route path="/user/day/:id" element={<p>Entry </p>} />
+                    <Route path="/user/report/month/:year/:month" element={<MonthPage />} />
+                    <Route path="/user/report/year/:year" element={<YearPage />} />
+                    <Route path="/user/search/:phrase" element={<Search />} />
+                </Fragment> :
+                    <Fragment>
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/registration/" element={<Registration />} />
+                    </Fragment>
+            }
 
-            <Route path="/login" element={<Login />} />
-            <Route path="/registration" element={<Registration />} />
+            <Route path="*" element={<Homepage />} />
+
+
         </Routes>
     )
 }

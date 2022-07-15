@@ -9,9 +9,11 @@ use App\Models\Entry;
 
 class EntryController extends Controller
 {
-    public function index($period, $value = null)
+    public function index($period, $value1 = null, $value2 = null)
     {
-        $id = Auth::user()->id;
+        $id = Auth::id();
+
+        if (!$id) return [];
 
         if ($period == 'all') {
 
@@ -25,18 +27,30 @@ class EntryController extends Controller
             return $values;
         } else if ($period == 'month') {
 
-            $period = $value;
-            $values = Entry::where('user_id', $id)->where('date', 'LIKE', $period . '%')->get();
+            $year = $value1;
+            $month = $value2;
+            $values = Entry::where('user_id', $id)->where('date', 'like', $year . '-' . $month . '%')->get();
 
             return $values;
         } else if ($period == 'year') {
 
-            $year = $value;
-            $values = Entry::where('user_id', $id)->where('date', 'LIKE', $year . '%')->get();
+            $year = $value1;
+            $values = Entry::where('user_id', $id)->where('date', 'like', $year . '%')->get();
             // dd($values);
             return $values;
         } else {
             return [];
         }
+    }
+
+    public function search($phrase)
+    {
+        $id = Auth::id();
+
+        if (!$id) return null;
+
+        $result = Entry::where('user_id', $id)->where('note', 'like', '%' . $phrase . '%')->get();
+
+        return $result;
     }
 }

@@ -1,26 +1,28 @@
-import { Link, useNavigate } from "react-router-dom";
-import React, { Fragment, useEffect, useState } from "react";
-import { getEntries } from "../actions/entries";
+import { Fragment, useState, useEffect } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { searchEntries } from "../actions/entries";
 
-export function All() {
+export function Search() {
 
-    const [entries, setEntries] = useState([])
+    const params = useParams();
+    console.log(params);
+
+    const [entries, setEntries] = useState([]);
     const [loadingEntries, setLoadingEntries] = useState(false)
-
-    // console.log(entries);
 
     const [currentPage, setCurrentPage] = useState(0);
     const [perPage, setPerPage] = useState(25);
 
-    const fetchData = async () => {
-        setLoadingEntries(true)
-        const payload = { type: 'all' };
+    const navigate = useNavigate();
 
-        const res = await getEntries(payload);
+    const fetchData = async () => {
+        setLoadingEntries(true);
+
+        const res = await searchEntries(params.phrase);
+        console.log(res);
 
         setEntries(res);
-        setLoadingEntries(false)
-
+        setLoadingEntries(false);
     }
 
     useEffect(() => {
@@ -29,16 +31,15 @@ export function All() {
 
     }, [])
 
-    const navigate = useNavigate()
-
     return (
         <Fragment>
-            <div className="Entries--all">
+            <div className="entries--search-result">
+                <h2> You are searching for <i>{params.phrase}</i> </h2>
                 {
                     loadingEntries ? 'loading...' :
                         entries.length ?
                             (<><h4>You have {entries.length} entries</h4>
-                                {(entries.length % 25) > 1 ? <> <p>You have {Math.round(entries.length / 25)} pages. Page {currentPage + 1} </p> </> : ''}
+                                {/* {(entries.length % 25) > 1 ? <> <p>You have {Math.round(entries.length / 25)} pages. Page {currentPage + 1} </p> </> : ''} */}
                                 <table>
                                     <thead>
                                         <tr>
@@ -61,7 +62,7 @@ export function All() {
                                     </tbody>
 
                                 </table>
-                                <div className="page--all--buttons" style={{ textAlign: 'center' }}>
+                                <div className="page--search--buttons" style={{ textAlign: 'center' }}>
                                     {
                                         !!currentPage && <button onClick={() => setCurrentPage(!currentPage ? currentPage : currentPage - 1)}>back</button>
                                     }
@@ -72,12 +73,11 @@ export function All() {
                                 </div>
 
                             </>) :
-                            (<> <p>You have no entries yet. </p>
+                            (<> <p>You have no entries with the <strong>{params.phrase}</strong>. </p>
                                 <Link to='/user'>You can create here </Link>
                             </>)
                 }
             </div>
         </Fragment>
-
     )
 }

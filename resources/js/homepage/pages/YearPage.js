@@ -1,6 +1,5 @@
 import { Fragment } from "react";
 import { useState, useEffect } from 'react';
-import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { getEntries } from "../actions/entries";
 import { MonthYear } from "../components/MonthYear";
@@ -9,8 +8,6 @@ export function YearPage() {
 
     const [entries, setEntries] = useState([])
     const [loadingEntries, setLoadingEntries] = useState(false);
-
-    const navigate = useNavigate();
 
     const params = useParams();
 
@@ -43,24 +40,24 @@ export function YearPage() {
 
                     <div className="page--year">
                         <div className="page--year--quarter">
-                            <MonthYear name='JANUARY' entries={entries} sign='-01-' onClick={() => navigate(`/user/report/month/${params.year}-01`)} />
-                            <MonthYear name='FEBRUARY' entries={entries} sign='-02-' />
-                            <MonthYear name='MARTH' entries={entries} sign='-03-' />
+                            <MonthYear name='JANUARY' entries={entries} sign='01' year={params.year} />
+                            <MonthYear name='FEBRUARY' entries={entries} sign='02' year={params.year} />
+                            <MonthYear name='MARTH' entries={entries} sign='03' year={params.year} />
                         </div>
                         <div className="page--year--quarter">
-                            <MonthYear name='APRIL' entries={entries} sign='-04-' />
-                            <MonthYear name='MAY' entries={entries} sign='-05-' />
-                            <MonthYear name='JUNE' entries={entries} sign='-06-' />
+                            <MonthYear name='APRIL' entries={entries} sign='04' year={params.year} />
+                            <MonthYear name='MAY' entries={entries} sign='05' year={params.year} />
+                            <MonthYear name='JUNE' entries={entries} sign='06' year={params.year} />
                         </div>
                         <div className="page--year--quarter">
-                            <MonthYear name='JULY' entries={entries} sign='-07-' />
-                            <MonthYear name='AUGUST' entries={entries} sign='-08-' />
-                            <MonthYear name='SEPTEMBER' entries={entries} sign='-09-' />
+                            <MonthYear name='JULY' entries={entries} sign='07' year={params.year} />
+                            <MonthYear name='AUGUST' entries={entries} sign='08' year={params.year} />
+                            <MonthYear name='SEPTEMBER' entries={entries} sign='09' year={params.year} />
                         </div>
                         <div className="page--year--quarter">
-                            <MonthYear name='OCTOBER' entries={entries} sign='-10-' />
-                            <MonthYear name='NOVEMBER' entries={entries} sign='-11-' />
-                            <MonthYear name='DECEMBER' entries={entries} sign='-12-' />
+                            <MonthYear name='OCTOBER' entries={entries} sign='10' year={params.year} />
+                            <MonthYear name='NOVEMBER' entries={entries} sign='11' year={params.year} />
+                            <MonthYear name='DECEMBER' entries={entries} sign='12' year={params.year} />
                         </div>
                     </div></>}
         </Fragment>
