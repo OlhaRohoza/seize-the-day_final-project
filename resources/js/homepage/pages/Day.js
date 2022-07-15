@@ -1,39 +1,75 @@
-import { useEffect, useState } from "react"
-import axios from "axios";
-function Day(props) {
+import React, { Fragment } from "react";
+import { useParams } from "react-router-dom";
+import { useState, useEffect } from 'react';
+import { getEntries } from "../actions/entries";
+import EntryListElement from "./EntryListElement";
 
-    const [date, setDate] = useState(props.date ? props.date : "2022-07-13")
-    const [rate, setRate] = useState([])
-   
-    const printDay = async () =>{
-        const response = await axios.get('/api/day?date='+date)
-        
-        console.log(response.data)
-        //setDate(response)
-    }
+function Day() {
 
-    useEffect(()=> {
-      printDay()
-    },[])
-
-    const printData = async () =>{
-      const response = await axios.get('/api/day')
-      console.log(response)
-      // setDate(response)
-  }
+  const [entries, setEntries] = useState([])
+    const [loadingEntries, setLoadingEntries] = useState(false)
+    const params = useParams();
     
+    console.log(params);
+
+    const fetchData = async () => {
+      setLoadingEntries(true)
+      const payload = { type: 'day', value: params.date };
+
+      const res = await getEntries(payload);
+
+      setEntries(res);
+
+      setLoadingEntries(false)
+      console.log(res)
+  }
+
+
+  useEffect(() => {
+
+      fetchData()
+
+  }, [])
+  
+
   
   return (
-   <div>
-     <div><h1>Today - {date}</h1></div>
-     <div><h1>picture - </h1></div>
-        <div>             
-         <div><h2>Here’s your notes of the day- </h2></div>
-         <div><h3>This day’s rate from 0 to 10</h3></div>
-         <div><h4>Here’s your ideas and insights</h4></div>
-         <div><h4>Here’s your gratitude</h4></div>
-        </div>  
-   </div>
+
+    <Fragment >
+    {loadingEntries ? 'loading...'
+        : <>
+            <h1>
+            Today : {params.date}
+            </h1>
+           
+            <div>
+             <h2>"Here’s your notes of the day : 
+              
+              <table style={{ textAlign: 'left'}}>
+                <tr>
+                  <th>note</th>
+                  <th>rate</th>
+                </tr>
+                {
+                  entries.map((element) => <EntryListElement element={element} key={element.id} />)
+                }
+              </table>
+               
+             </h2>
+            </div>
+            
+            <div>
+              
+              
+              
+            </div>
+            </>
+
+    }
+   
+    
+</Fragment>
+
   )
 }
 

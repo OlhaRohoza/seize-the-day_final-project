@@ -9,12 +9,12 @@ use App\Models\Entry;
 
 class EntryController extends Controller
 {
-    public function index($period, $value = null)
+    public function index(Request $request, $period, $value = null)
     {
         $id = Auth::user()->id;
-
-$request->query('date');
-
+        
+        
+        
         if ($period == 'all') {
 
             $values = Entry::orderBy('date')->where('user_id', $id)->get();
@@ -22,12 +22,10 @@ $request->query('date');
             return $values;
         } else if ($period == 'day') {
 
-            $date = $request->input('date');
-
-
-
-            $values = Entry::where('user_id', $id)->where('date',$date)->first();
-
+            $date = $value;
+            
+            $values = Entry::where('user_id', $id)->where('date', $date)->get();
+            
             return $values;
         } else if ($period == 'month') {
 
@@ -45,4 +43,24 @@ $request->query('date');
             return [];
         }
     }
+
+    public function store(Request $request) {
+
+        $date = $request->input('date');
+
+        $rate = $request->input('rate');
+
+        $note = $request->input('note');
+
+
+        $res = Entrie::create([
+            'date' => $date,
+            'rate' => $rate,
+            'note' => $note
+        ]);
+
+        return $res;
+    }
+
+ 
 }

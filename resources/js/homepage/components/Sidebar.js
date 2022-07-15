@@ -35,7 +35,7 @@ function Sidebar() {
 
     const handleRandom = () => {
         console.log('Random day');
-        navigate('/user/day')
+        navigate('/')
     }
 
     return (

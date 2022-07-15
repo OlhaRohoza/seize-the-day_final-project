@@ -13,6 +13,8 @@ export function Entry() {
 
     });
 
+    const navigate = useNavigate()
+
     const Save_entrie = async (e) =>{
         e.preventDefault()
         // if (!entry.date || !entry.rate || !entry.note) {
@@ -22,9 +24,9 @@ export function Entry() {
         // }
         const response = await axios.post('/user/day', entry)
         console.log(response.data)
+        navigate('/user/day/'+entry.date)
     }
     console.log(entry)
-    const navigate = useNavigate()
     
 
     return (
@@ -37,7 +39,7 @@ export function Entry() {
                     <input type='number' name='rate' defaultValue={0} onChange={(e) => setEntry({ ...entry, rate: e.target.value })} />
                     <textarea type='note' name='note' style={{ height: '400px' }} placeholder="Here you can add a note about your day, some ideas and insights, who you are grateful for something..."  value={entry.note}onChange={(e) => setEntry({ ...entry, note: e.target.value })} />
                     <input type='text' name='picture' value={entry.picture} onChange={(e) => setEntry({ ...entry, picture: e.target.value })} />
-                    <button onClick={() => navigate('/user/day')}>Save</button>
+                    <button>Save</button>
                 </form>
 
             </div>

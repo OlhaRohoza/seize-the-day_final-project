@@ -5,14 +5,15 @@ import Login from '../pages/Login';
 import Registration from '../pages/Registration';
 import Day from '../pages/Day';
 import { YearPage } from '../pages/YearPage';
-import { MonthPage } from '../pages/MonthPage'
+import { MonthPage } from '../pages/MonthPage';
+
 
 export function Routing() {
     return (
         <Routes>
             <Route path="/" element={<span>Home page</span>} />
             <Route path="/user" element={<Entry />} />
-            <Route path="/user/day" element={<Day />} />
+            <Route path="/user/day/:date" element={<Day />} />
             <Route path="/user/all" element={<All />} />
             <Route path="/user/report/month/:period" element={<MonthPage />} />
             <Route path="/user/report/year/:year" element={<YearPage />} />

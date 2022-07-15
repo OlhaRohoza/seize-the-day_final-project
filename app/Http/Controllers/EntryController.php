@@ -31,4 +31,21 @@ class EntryController extends Controller
         ]);
         return $entry;
     }
+
+    public function editeEntrie(Request $request, $id)
+    {
+        $rate = $request->input('rate');
+
+        $note = $request->input('note');
+
+        $entrie = Entrie::where('id', $id)->first();
+        
+        $entrie->rate = $rate;
+        $entrie->note = $note;
+
+        $entrie->save();
+        
+        return $entrie;
+
+    }
 }

@@ -20,6 +20,10 @@ export const getEntries = async (payload) => {
         let url = `/api/${payload.type}/${payload.value}`;
         const res = await axios.get(url);
         return res.data;
+    } else if (payload.type === 'day') {
+        let url = `/api/${payload.type}/${payload.value}`;
+        const res = await axios.get(url);
+        return res.data;
     }
 
 
