@@ -9,7 +9,7 @@ use App\Models\Entry;
 
 class EntryController extends Controller
 {
-    public function index(Request $request, $period)
+    public function index($period, $value = null)
     {
         $id = Auth::user()->id;
 
@@ -25,15 +25,15 @@ class EntryController extends Controller
             return $values;
         } else if ($period == 'month') {
 
-            $values = [];
+            $period = $value;
+            $values = Entry::where('user_id', $id)->where('date', 'LIKE', $period . '%')->get();
 
             return $values;
         } else if ($period == 'year') {
 
-            $year = $request->input('year');
-
-            $values = Entry::where('user_id', $id)->where('date', 'LIKE', $year . '%');
-
+            $year = $value;
+            $values = Entry::where('user_id', $id)->where('date', 'LIKE', $year . '%')->get();
+            // dd($values);
             return $values;
         } else {
             return [];
