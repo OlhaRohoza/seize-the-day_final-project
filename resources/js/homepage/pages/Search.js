@@ -51,7 +51,7 @@ export function Search() {
                                     <tbody>
                                         {
                                             entries.slice(currentPage * perPage, (currentPage + 1) * perPage).map((entry) => (
-                                                <tr key={entry.id} onClick={() => navigate('/user/day/' + entry.id)}>
+                                                <tr key={entry.id} onClick={() => navigate('/user/day/' + entry.date)}>
                                                     <td>{entry.date} </td>
                                                     <td style={{ textAlign: 'center' }}>{entry.rate} </td>
                                                     <td>{entry.note.length < 99 ? entry.note : entry.note.substring(0, 100)} ...</td>

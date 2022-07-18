@@ -35,12 +35,14 @@ body {
 .main--content {
   padding: 0.5em;
 }
-input{
+
+input {
   background: transparent;
   color: #85b2a4;
 }
+
 button {
-  background-color: #007169;
+  background-color: #7c73e6;
   height: 2em;
   border: silver;
   border-radius: 0.5em;

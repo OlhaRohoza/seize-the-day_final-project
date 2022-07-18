@@ -86,7 +86,7 @@ export function MonthPage() {
                                     <tbody>
                                         {
                                             entries.map((entry) => (
-                                                <tr key={entry.id} onClick={() => navigate('/user/day/' + entry.id)}>
+                                                <tr key={entry.id} onClick={() => navigate('/user/day/' + entry.date)}>
                                                     <td>{entry.date} </td>
                                                     <td> </td>
                                                     <td>{entry.note.length < 99 ? entry.note : entry.note.substring(0, 100)} ...</td>
