@@ -22,3 +22,4 @@ Route::get('/user/day', [App\Http\Controllers\EntryController::class, 'store']);
 Route::get('/user/day/{period}', [App\Http\Controllers\EntryController::class, 'index']);
 
 Route::put('/user/day/{id}', [App\Http\Controllers\EntryController::class, 'editeEntrie']);
+Route::get('/user/day/{id}', [App\Http\Controllers\EntryController::class, 'editeEntrie']);

@@ -23,10 +23,10 @@ export function Entry() {
         //     return
         // }
         const response = await axios.post('/user/day', entry)
-        console.log(response.data)
+        // console.log(response.data)
         navigate('/user/day/'+entry.date)
     }
-    console.log(entry)
+    // console.log(entry)
     
 
     return (

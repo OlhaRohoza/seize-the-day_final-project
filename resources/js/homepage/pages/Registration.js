@@ -33,7 +33,7 @@ function Registration() {
         const response = await axios.post('/register', Info)
         // const response_data = response.data;
 
-        console.log(response.data)
+        // console.log(response.data)
 
         // redirect
         // history.push('/');

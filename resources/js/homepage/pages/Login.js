@@ -41,7 +41,7 @@ function Login() {
         await axios.post('/login', Info)
 
         const data = await axios.get('/api/user')
-        console.log(data.data);
+        // console.log(data.data);
 
         await setUser(data.data);
         

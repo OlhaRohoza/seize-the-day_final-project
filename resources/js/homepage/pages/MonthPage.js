@@ -11,7 +11,7 @@ export function MonthPage() {
     const [entries, setEntries] = useState([])
     const [loadingEntries, setLoadingEntries] = useState(false)
 
-    console.log(entries);
+    // console.log(entries);
 
     const fetchData = async () => {
         setLoadingEntries(true)

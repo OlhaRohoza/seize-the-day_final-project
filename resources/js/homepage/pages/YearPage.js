@@ -14,8 +14,8 @@ export function YearPage() {
 
     const params = useParams();
 
-    console.log(params);
-    console.log(entries);
+    // console.log(params);
+    // console.log(entries);
 
     const fetchData = async () => {
         setLoadingEntries(true)

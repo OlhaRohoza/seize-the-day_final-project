@@ -10,6 +10,7 @@ function Day() {
     const [loadingEntries, setLoadingEntries] = useState(false)
     const params = useParams();
     
+    
     console.log(params);
 
     const fetchData = async () => {
@@ -56,13 +57,15 @@ function Day() {
               </table>
                
              </h2>
+             <h3>updates</h3>
+
+             <h4> {entries.map((element) => <h4>Note:{element.note}</h4>  )}</h4>
+
+             
+             
             </div>
             
-            <div>
-              
-              
-              
-            </div>
+           
             </>
 
     }
