@@ -33,7 +33,7 @@ function Sidebar() {
 
     return (
 
-        <div className="sidebar" style={{ backgroundColor: '#f0dbff' }}>
+        <div className="sidebar" style={{ backgroundColor: '#ffe9e3' }}>
             <br />
             <Searchbar />
 
@@ -70,7 +70,7 @@ function Sidebar() {
             />
             <Button name='Year report' handleClick={() => navigate(`/user/report/year/${moment(startYear).format('YYYY')}`)} />
 
-            <Button name='Random date' handleClick={handleRandom} />
+            <Button name='Create an Entry' handleClick={handleRandom} />
         </div>
 
     )
