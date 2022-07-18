@@ -17,20 +17,16 @@ body {
 .sidebar {
   display: flex;
   flex-direction: column;
+  background: #ffe9e3;
+  height: 100vh;
   padding: 0.5em;
   gap: 1.05em;
 }
 
-/* .sidebar input {
-  width: 245px;
+input {
   border-radius: 2px;
   border: 2px solid silver;
-}*/
-/* 
-.sidebar button {
-  width: 200px;
-  height: 2.2em;
-} */
+}
 
 .main--content {
   padding: 0.5em;
@@ -110,4 +106,8 @@ table {
   width: 500px;
   margin: 1em;
   padding: 1em;
+}
+
+.entry-graph--part {
+  display: flex;
 }

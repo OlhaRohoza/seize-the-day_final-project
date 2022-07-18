@@ -33,7 +33,7 @@ function Sidebar() {
 
     return (
 
-        <div className="sidebar" style={{ backgroundColor: '#ffe9e3' }}>
+        <div className="sidebar" >
             <br />
             <Searchbar />
 

@@ -20,8 +20,11 @@ function NavBar() {
         {
           user ? (
             <>
-              <h2>{user.name}</h2>
+
+              <h4>{user.name}</h4>
+
               <LogoutButton />
+
             </>
 
           )
@@ -37,7 +40,6 @@ function NavBar() {
                   <Link to='/registration'>
                     Register
                   </Link>
-
                 </div>
 
               </>

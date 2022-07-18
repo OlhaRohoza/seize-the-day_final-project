@@ -33,7 +33,7 @@ class EntryController extends Controller
 
             $year = $value1;
             $month = $value2;
-            $values = Entry::where('user_id', $id)->where('date', 'like', $year . '-' . $month . '%')->get();
+            $values = Entry::where('user_id', $id)->orderBy('date')->where('date', 'like', $year . '-' . $month . '%')->get();
 
             return $values;
         } else if ($period == 'year') {
@@ -67,7 +67,7 @@ class EntryController extends Controller
         $note = $request->input('note');
 
 
-        $res = Entrie::create([
+        $res = Entry::create([
             'date' => $date,
             'rate' => $rate,
             'note' => $note
