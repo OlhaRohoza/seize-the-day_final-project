@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import UserContext from "../UserContext";
+import Day from "../pages/Day";
 import Button from "./Button";
 import Searchbar from './Searchbar';
 import moment from 'moment';
@@ -27,6 +28,7 @@ function Sidebar() {
 
     const handleRandom = () => {
         console.log('Random day');
+        navigate('/')
     }
 
     return (

@@ -9,8 +9,10 @@ use App\Models\Entry;
 
 class EntryController extends Controller
 {
-    public function index($period, $value1 = null, $value2 = null)
+
+    public function index(Request $request, $period, $value1 = null, $value2 = null)
     {
+
         $id = Auth::id();
 
         if (!$id) return [];
@@ -22,7 +24,9 @@ class EntryController extends Controller
             return $values;
         } else if ($period == 'day') {
 
-            $values = Entry::where('user_id', $id)->findOrFail($id);
+            $date = $value1;
+
+            $values = Entry::where('user_id', $id)->where('date', $date)->get();
 
             return $values;
         } else if ($period == 'month') {
@@ -52,5 +56,23 @@ class EntryController extends Controller
         $result = Entry::where('user_id', $id)->where('note', 'like', '%' . $phrase . '%')->get();
 
         return $result;
+    }
+    public function store(Request $request)
+    {
+
+        $date = $request->input('date');
+
+        $rate = $request->input('rate');
+
+        $note = $request->input('note');
+
+
+        $res = Entrie::create([
+            'date' => $date,
+            'rate' => $rate,
+            'note' => $note
+        ]);
+
+        return $res;
     }
 }
