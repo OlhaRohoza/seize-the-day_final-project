@@ -66,7 +66,7 @@ const EntryListElement = ({element}) => {
                 </td>
                 <td>
                     {
-                        openEdit ? <button  style={{background:  'white'}} onClick={()=> handleUpdate()} handleClick={()=>refreshPage()}>Submit</button> : <button style={{background:  'white'}} onClick={()=> setOpenEdit(true)} >Edit</button>
+                        openEdit ? <button  style={{background:  'white'}} onClick={()=> handleUpdate()}handleClick={()=>refreshPage()}>Submit</button> : <button style={{background:  'white'}} onClick={()=> setOpenEdit(true)} >Edit</button>
                     }
                 </td>
             </tr>
