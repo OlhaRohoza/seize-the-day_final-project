@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import { getEntries } from "../actions/entries";
 import EntryListElement from "./EntryListElement";
@@ -30,7 +30,8 @@ function Day() {
 
     fetchData()
 
-  }, [])
+
+  }, [params])
 
 
 
@@ -38,18 +39,21 @@ function Day() {
 
     <Fragment >
       {loadingEntries ? 'loading...'
-        : <div className="Entry--day-display">
-          <h1>
-            Entry from {moment(params.date).format('Do MMMM YYYY')}
-          </h1>
+        : entries.length
+          ? <div className="Entry--day-display">
+            <h1>
+              Entry from {moment(params.date).format('Do MMMM YYYY')}
+            </h1>
 
-          <div>
-            {
-              entries.map((element) => <EntryListElement element={element} key={element.id} />)
-            }
-          </div>
-
-        </div >
+            <div>
+              {
+                entries.map((element) => <EntryListElement element={element} key={element.id} />)
+              }
+            </div>
+          </div >
+          : (<> <p>You have no entries on {moment(params.date).format('Do MMMM YYYY')}. </p>
+            <Link to='/user'>You can create here </Link>
+          </>)
 
       }
 

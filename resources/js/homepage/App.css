@@ -13,7 +13,6 @@ body {
   display: flex;
 }
 
-
 .sidebar {
   display: flex;
   flex-direction: column;
@@ -23,10 +22,10 @@ body {
   gap: 1.05em;
 }
 
-input {
+/* input {
   border-radius: 2px;
   border: 2px solid silver;
-}
+} */
 
 .main--content {
   padding: 0.5em;
@@ -34,7 +33,7 @@ input {
 
 input {
   background: transparent;
-  color: #85b2a4;
+  /* color: #85b2a4; */
 }
 
 button {
@@ -110,4 +109,21 @@ table {
 
 .entry-graph--part {
   display: flex;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background: #ffe9e3;
+  padding: 0 1em;
+}
+
+.footer p {
+  text-decoration: none;
+  margin: 0;
 }

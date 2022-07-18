@@ -59,7 +59,6 @@ export function Graph({ entries = [] }) {
             setChartData(data)
         }
 
-
     }, [entries])
 
 

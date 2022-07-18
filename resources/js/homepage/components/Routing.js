@@ -10,6 +10,7 @@ import { Homepage } from '../pages/Homepage';
 import { Fragment, useContext } from 'react';
 import UserContext from '../UserContext';
 import { Search } from '../pages/Search';
+import { AboutUs } from '../pages/AboutUs';
 
 export function Routing() {
     const { user } = useContext(UserContext);
@@ -28,11 +29,12 @@ export function Routing() {
                     <Fragment>
                         <Route path="/login" element={<Login />} />
                         <Route path="/registration/" element={<Registration />} />
+
                     </Fragment>
             }
 
             <Route path="*" element={<Homepage />} />
-
+            <Route path="/about-us" element={<AboutUs />} />
         </Routes>
     )
 }

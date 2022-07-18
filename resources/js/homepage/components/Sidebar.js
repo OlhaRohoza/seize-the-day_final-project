@@ -30,6 +30,10 @@ function Sidebar() {
         console.log('Random day');
         navigate('/')
     }
+    const handleDate = (date) => {
+        setStartDateInline(date)
+        navigate('/user/day/' + moment(date).format('YYYY-MM-DD'))
+    }
 
     return (
 
@@ -39,7 +43,7 @@ function Sidebar() {
 
             <DatePicker className='Calendar--Inline'
                 selected={startDateInline}
-                onChange={(date) => setStartDateInline(date)}
+                onChange={(date) => handleDate(date)}
                 inline
             />
 

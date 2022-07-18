@@ -14,7 +14,7 @@ body {
   background: #fafafa;
 }
 
-.logo h3 {
+.navigation .logo h3 {
   color: #47483e;
   font-size: 2em;
 }
@@ -89,24 +89,24 @@ a:hover {
   margin-right: 2em;
 
 } */
-a {
-  color: #d2caa2;
+.navigation a {
+  color: black;
   text-decoration: none;
   padding: 8px 8px;
 
 }
 
-a:hover {
+.navigation a:hover {
   color: #77A8A3;
 }
 
-.link {
+.navigation .link {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding-top: .3em;
 }
 
-.login-btn {
+.navigation .login-btn {
   padding-top: 1.3em;
 }

@@ -29,7 +29,7 @@ export function Search() {
 
         fetchData()
 
-    }, [])
+    }, [params])
 
     return (
         <Fragment>

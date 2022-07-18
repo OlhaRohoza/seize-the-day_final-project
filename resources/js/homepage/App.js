@@ -10,6 +10,7 @@ import './App.css'
 import { MainContent } from './components/MainContent'
 
 import { BrowserRouter as Router } from 'react-router-dom'
+import { Footer } from './components/Footer';
 
 
 
@@ -50,6 +51,7 @@ function App() {
             }
             <MainContent />
           </div>
+          <Footer />
         </div>
 
       </Router>
