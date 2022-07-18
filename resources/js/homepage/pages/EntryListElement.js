@@ -1,53 +1,61 @@
 import React, { Fragment, useState, useEffect } from "react";
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 
-const EntryListElement = ({element}) => {
+
+const EntryListElement = ({ element }) => {
     const [formData, setFormData] = useState(null)
     const [openEdit, setOpenEdit] = useState(false)
-  
+    const navigate = useNavigate();
+
     useEffect(() => {
-  
+
         setFormData({ ...element });
-  
+
     }, [])
- 
+
     const handleChange = (e) => {
-        setFormData({...formData, [e.target.name]: e.target.value})
+        setFormData({ ...formData, [e.target.name]: e.target.value })
     }
-    
+
     const handleUpdate = async () => {
         const res = await axios.put('/user/day/' + element.id, formData)
         console.log(res.data)
-        setOpenEdit(true)
+        setOpenEdit(false)
+        navigate('/user/day/' + element.date)
+
     }
 
 
     return (
-        <tr>
-            <td>
+        <div className="Entry--day-display">
+            <div className="Entry--day-part">
+                <h4>Rate of the day: </h4>
                 {
-                openEdit ? <Fragment>
-                    note: 
-                    <input name="note" value={formData.note || ''} onChange={handleChange} />
-                </Fragment> : element.note
+                    openEdit
+                        ? <Fragment>
+                            <input name="rate" value={formData.rate || ''} onChange={handleChange} />
+                        </Fragment>
+                        : element.rate
                 }
-            </td>
-            <td>
-                
+            </div>
+            <div className="Entry--day-part">
+                <h4>Note of the day: </h4>
                 {
-                openEdit ? <Fragment>
-                    rate: 
-                    <input name="rate" value={formData.rate || ''} onChange={handleChange} />
-                </Fragment> : element.rate
+                    openEdit
+                        ? <Fragment>
+                            <textarea name="note" value={formData.note || ''} onChange={handleChange} style={{ height: '400px' }} />
+                        </Fragment> : element.note
                 }
-            </td>
-            <td>
+            </div>
+
+            <div className="Entry--day-part" style={{ marginTop: '2em' }}>
                 {
-                    openEdit ? <button style={{background:  'white'}} onClick={()=> handleUpdate()} >Submit</button> : <button style={{background:  'white'}} onClick={()=> setOpenEdit(true)} >Edit</button>
+                    openEdit ? <button onClick={() => handleUpdate()} >Submit</button> : <button onClick={() => setOpenEdit(true)} >Edit</button>
                 }
-            </td>
-        </tr>
+            </div>
+        </div>
     )
 }
 export default EntryListElement

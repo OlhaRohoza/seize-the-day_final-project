@@ -6,9 +6,6 @@ import UserContext from '../UserContext';
 import { useContext } from 'react';
 import LogoutButton from '../pages/LogoutButton';
 
-
-
-
 function NavBar() {
   const { user, setUser } = useContext(UserContext);
   return (
@@ -22,7 +19,11 @@ function NavBar() {
       <div className='link'>
         {
           user ? (
-            <LogoutButton />
+            <>
+              <h2>{user.name}</h2>
+              <LogoutButton />
+            </>
+
           )
             : (
               <>
