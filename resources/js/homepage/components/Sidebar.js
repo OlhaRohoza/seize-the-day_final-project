@@ -11,7 +11,7 @@ import moment from 'moment';
 
 function Sidebar() {
     const [startDateInline, setStartDateInline] = useState(new Date());
-    const [startWeek, setStartWeek] = useState(new Date());
+    // const [startWeek, setStartWeek] = useState(new Date());
     const [startMonth, setStartMonth] = useState(new Date());
     const [startYear, setStartYear] = useState(new Date());
     const navigate = useNavigate();
@@ -20,18 +20,11 @@ function Sidebar() {
 
     console.log(user.id)
 
-    const handleAll = () => {
-        console.log('all entries');
-
-    }
-
-    const handleWeek = () => {
-        console.log('week report');
-        const input = document.querySelector('.Calendar--Week');
-        console.log(input.value);
-
-
-    }
+    // const handleWeek = () => {
+    //     console.log('week report');
+    //     const input = document.querySelector('.Calendar--Week');
+    //     console.log(input.value);
+    // }
 
     const handleRandom = () => {
         console.log('Random day');
@@ -67,7 +60,7 @@ function Sidebar() {
                 showMonthYearPicker
                 showFullMonthYearPicker
             />
-            <Button name='Month report' handleClick={() => navigate(`/user/report/month/${moment(startMonth).format('YYYY-MM')}`)} />
+            <Button name='Month report' handleClick={() => navigate(`/user/report/month/${moment(startMonth).format('YYYY')}/${moment(startMonth).format('MM')}`)} />
 
             <DatePicker className='Calendar--Year'
                 selected={startYear}

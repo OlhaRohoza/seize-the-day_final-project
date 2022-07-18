@@ -20,6 +20,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('{period}/{value?}', [EntryController::class, 'index']);
+Route::get('/search/{phrase}', [EntryController::class, 'search']);
+Route::get('{period}/{value1?}/{value2?}', [EntryController::class, 'index']);
+
 
 // Route::get('{user_id}/year/{year}', [EntryController::class, 'year']);

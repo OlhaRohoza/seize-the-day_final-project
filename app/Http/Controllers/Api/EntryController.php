@@ -9,12 +9,14 @@ use App\Models\Entry;
 
 class EntryController extends Controller
 {
-    public function index(Request $request, $period, $value = null)
+
+    public function index(Request $request, $period, $value1 = null, $value2 = null)
     {
-        $id = Auth::user()->id;
-        
-        
-        
+
+        $id = Auth::id();
+
+        if (!$id) return [];
+
         if ($period == 'all') {
 
             $values = Entry::orderBy('date')->where('user_id', $id)->get();
@@ -22,21 +24,22 @@ class EntryController extends Controller
             return $values;
         } else if ($period == 'day') {
 
-            $date = $value;
-            
+            $date = $value1;
+
             $values = Entry::where('user_id', $id)->where('date', $date)->get();
-            
+
             return $values;
         } else if ($period == 'month') {
 
-            $period = $value;
-            $values = Entry::where('user_id', $id)->where('date', 'LIKE', $period . '%')->get();
+            $year = $value1;
+            $month = $value2;
+            $values = Entry::where('user_id', $id)->where('date', 'like', $year . '-' . $month . '%')->get();
 
             return $values;
         } else if ($period == 'year') {
 
-            $year = $value;
-            $values = Entry::where('user_id', $id)->where('date', 'LIKE', $year . '%')->get();
+            $year = $value1;
+            $values = Entry::where('user_id', $id)->where('date', 'like', $year . '%')->get();
             // dd($values);
             return $values;
         } else {
@@ -44,7 +47,18 @@ class EntryController extends Controller
         }
     }
 
-    public function store(Request $request) {
+    public function search($phrase)
+    {
+        $id = Auth::id();
+
+        if (!$id) return null;
+
+        $result = Entry::where('user_id', $id)->where('note', 'like', '%' . $phrase . '%')->get();
+
+        return $result;
+    }
+    public function store(Request $request)
+    {
 
         $date = $request->input('date');
 
@@ -61,6 +75,4 @@ class EntryController extends Controller
 
         return $res;
     }
-
- 
 }
