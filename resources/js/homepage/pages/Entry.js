@@ -1,6 +1,7 @@
 import { useState } from "react";
 import {  useNavigate } from "react-router-dom";
 import axios from 'axios';
+import './App.css';
 
 export function Entry() {
     const [entry,setEntry] = useState({

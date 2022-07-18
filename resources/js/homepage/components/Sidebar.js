@@ -7,6 +7,7 @@ import Day from "../pages/Day";
 import Button from "./Button";
 import Searchbar from './Searchbar';
 import moment from 'moment';
+import './sidebar.css';
 
 
 function Sidebar() {
@@ -33,7 +34,7 @@ function Sidebar() {
 
     return (
 
-        <div className="sidebar" style={{ backgroundColor: '#f0dbff' }}>
+        <div className="sidebar" style={{ backgroundColor: '#3b8af9' }}>
             <br />
             <Searchbar />
 

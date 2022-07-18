@@ -55,14 +55,7 @@ function Day() {
                   entries.map((element) => <EntryListElement element={element} key={element.id} />)
                 }
               </table>
-               
              </h2>
-             <h3>updates</h3>
-
-             <h4> {entries.map((element) => <h4>Note:{element.note}</h4>  )}</h4>
-
-             
-             
             </div>
             
            

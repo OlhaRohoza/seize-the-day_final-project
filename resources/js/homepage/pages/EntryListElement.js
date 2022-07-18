@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from "react";
 import axios from 'axios';
-import { useNavigate  } from 'react-router-dom';
+// import { useNavigate  } from 'react-router-dom';
 
 
 
@@ -10,7 +10,7 @@ import { useNavigate  } from 'react-router-dom';
 const EntryListElement = ({element}) => {
     const [formData, setFormData] = useState(null)
     const [openEdit, setOpenEdit] = useState(false)
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     
     
   
@@ -29,16 +29,16 @@ const EntryListElement = ({element}) => {
         const res = await axios.put('/user/day/' + element.id, formData)
         
         console.log(res.data)
-         setOpenEdit(true)
-        navigate('/user/day/'+formData.date)
+         setOpenEdit(false)
+        // navigate('/user/day/'+formData.date)
        
       
         
         
     }
-   const refreshPage = async () => {
-        window.location.reload(true)
-      }    
+//    const refreshPage = async () => {
+//         window.location.reload(true)
+//       }    
    
    
 

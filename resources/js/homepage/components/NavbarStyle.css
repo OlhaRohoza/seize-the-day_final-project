@@ -6,16 +6,16 @@
   display: flex;
   justify-content: space-between;
   height: 5em;
-  background: #85b2a4;
+  background: #081a7f;
   padding: 2em;
 }
 body{
   background: 
-  #007169;
+  #aee6e2;
 }
 
 .logo h3 {
-  color: #47483e;
+  color: #b3f3f3;
   font-size: 2em;
 }
 
