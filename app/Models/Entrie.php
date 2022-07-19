@@ -9,11 +9,19 @@ class Entrie extends Model
 {
     use HasFactory;
 
+    protected $table = 'entries';
+
     protected $fillable = [
         'user_id',
         'date',
         'rate',
-        'note'
+        'note',
+        'image_id'
     ];
+
+    public function images()
+    {
+        return $this->belongsToMany(Image::class);
+    }
 
 }

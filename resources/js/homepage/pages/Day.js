@@ -22,7 +22,7 @@ function Day() {
       setEntries(res);
 
       setLoadingEntries(false)
-      console.log(res)
+      console.log(res.data)
   }
 
 

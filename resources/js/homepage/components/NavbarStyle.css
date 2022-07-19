@@ -6,7 +6,7 @@
   display: flex;
   justify-content: space-between;
   height: 5em;
-  background: #ffe9e3;
+  background: rgb(77, 69, 69);
   padding: 2em;
 }
 
@@ -15,7 +15,7 @@ body {
 }
 
 .logo h3 {
-  color: #b3f3f3;
+  color: white;
   font-size: 2em;
 }
 
@@ -90,7 +90,7 @@ a:hover {
 
 } */
 a {
-  color: #d2caa2;
+  color: #171401;
   text-decoration: none;
   padding: 8px 8px;
 

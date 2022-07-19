@@ -6,6 +6,7 @@ use Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Entry;
+use App\Models\Image;
 
 class EntryController extends Controller
 {
@@ -59,20 +60,32 @@ class EntryController extends Controller
     }
     public function store(Request $request)
     {
-
+        
+       
         $date = $request->input('date');
 
         $rate = $request->input('rate');
 
         $note = $request->input('note');
 
+        $image = $request->input('image');
+        
+        $newImage = new Image();
+
+        $newImage->path = $image->name;
+
+        $newImage->save();
+
 
         $res = Entrie::create([
             'date' => $date,
             'rate' => $rate,
-            'note' => $note
+            'note' => $note,
+            'image_id' => $newImage->id
         ]);
 
         return $res;
     }
+   
+    
 }

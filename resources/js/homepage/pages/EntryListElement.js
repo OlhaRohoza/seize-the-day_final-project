@@ -10,6 +10,7 @@ import axios from 'axios';
 const EntryListElement = ({element}) => {
     const [formData, setFormData] = useState(null)
     const [openEdit, setOpenEdit] = useState(false)
+    
     // const navigate = useNavigate();
     
     
@@ -64,6 +65,7 @@ const EntryListElement = ({element}) => {
                     </Fragment> : element.rate
                     }
                 </td>
+                
                 <td>
                     {
                         openEdit ? <button  style={{background:  'white'}} onClick={()=> handleUpdate()}handleClick={()=>refreshPage()}>Submit</button> : <button style={{background:  'white'}} onClick={()=> setOpenEdit(true)} >Edit</button>

@@ -1,48 +1,64 @@
 import { useState } from "react";
 import {  useNavigate } from "react-router-dom";
 import axios from 'axios';
-import './App.css';
+import './Entryform.css';
+
+
 
 export function Entry() {
-    const [entry,setEntry] = useState({
-        
+    const [entry, setEntry] = useState({
         date:"",
         rate: "0",
         note: "",
-        picture: "",
-
-
     });
+    const [image, setImage] = useState(null);
 
     const navigate = useNavigate()
 
-    const Save_entrie = async (e) =>{
+    const save_entrie = async (e) =>{
         e.preventDefault()
         // if (!entry.date || !entry.rate || !entry.note) {
         //     console.log(entry)
         //     alert("Complete all the fields!!!")
         //     return
         // }
-        const response = await axios.post('/user/day', entry)
-        // console.log(response.data)
-        navigate('/user/day/'+entry.date)
+        const options = {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        }
+
+        const form = new FormData();
+        const value = JSON.stringify(entry)
+
+        console.log(value)
+
+
+        form.append("image", image);
+        form.append("value", value);
+
+        const response = await axios.post('/user/day', form, options)
+        console.log(response.data)
+        navigate('/user/day/' + entry.date)
     }
-    // console.log(entry)
-    
 
     return (
         <>
-            <div >
-                <form class="mainWrap" onSubmit={Save_entrie} >
-                    
-                    <input type='date' name='date' value={entry.date} onChange={(e) => setEntry({ ...entry, date: e.target.value })} />
-                    <label>Rate your day from 0 to 10:</label>
-                    <input type='number' name='rate' defaultValue={0} onChange={(e) => setEntry({ ...entry, rate: e.target.value })} />
-                    <textarea type='note' name='note' style={{ height: '400px' }} placeholder="Here you can add a note about your day, some ideas and insights, who you are grateful for something..."  value={entry.note}onChange={(e) => setEntry({ ...entry, note: e.target.value })} />
-                    <button type='text' name='picture' value={entry.picture} onChange={(e) => setEntry({ ...entry, picture: e.target.value })} >Add picture</button>
-                    <button>Save</button>
-                </form>
+            <div className="wrap">
+                 <h1>Entry form</h1>
+                 <span >Select Date</span>
+                 <span >Set Rate Of The Day</span>
 
+                <form className="mainWrap" onSubmit={save_entrie} >
+                    
+                    <input className="name" type='date' name='date' value={entry.date} onChange={(e) => setEntry({ ...entry, date: e.target.value })} />
+                    <input className="rate" type='number' name='rate' value={entry.rate} onChange={(e) => setEntry({ ...entry, rate: e.target.value })} />
+                    <textarea className="mainArea" type='note' name='note' value={entry.note} style={{ height: '400px' }} placeholder="Here you can add a note about your day, some ideas and insights, who you are grateful for something..." onChange={(e) => setEntry({ ...entry, note: e.target.value })} />
+                    <input className="bigBtn" type='file' name='image' multiple onChange={(e)=> setImage(e.target.files[0])} />
+                    <button className="bigBtn">Save</button>
+
+                </form>
+                
             </div>
 
         </>

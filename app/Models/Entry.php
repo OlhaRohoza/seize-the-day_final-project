@@ -10,6 +10,14 @@ class Entry extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'user_id',
+        'date',
+        'rate',
+        'note',
+        'image_id'
+    ];
+
     public function images()
     {
         return $this->belongsToMany(Image::class);

@@ -38,13 +38,13 @@ body {
 
 input {
   background: transparent;
-  color: #85b2a4;
+  color: #020e0a;
 }
 
 button {
-  background-color: #7c73e6;
+  background-color: #eacd10;
   height: 2em;
-  border: silver;
+  border: rgb(13, 4, 4);
   border-radius: 0.5em;
 }
 

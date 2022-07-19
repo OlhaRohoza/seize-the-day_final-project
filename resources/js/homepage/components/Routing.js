@@ -10,6 +10,7 @@ import { Homepage } from '../pages/Homepage';
 import { Fragment, useContext } from 'react';
 import UserContext from '../UserContext';
 import { Search } from '../pages/Search';
+import ImageUpload from './ImageUpload';
 
 
 
@@ -26,6 +27,7 @@ export function Routing() {
                     <Route path="/user/report/month/:year/:month" element={<MonthPage />} />
                     <Route path="/user/report/year/:year" element={<YearPage />} />
                     <Route path="/user/search/:phrase" element={<Search />} />
+                    {/* <Route path="/user/add-image" element={<ImageUpload />} /> */}
                 </Fragment> :
                     <Fragment>
                         <Route path="/login" element={<Login />} />

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Entrie;
+use App\Models\Entry;
 use Auth;
+use App\Models\Image;
 
 class EntryController extends Controller
 {
@@ -13,22 +15,48 @@ class EntryController extends Controller
         $entry = Entrie::all();
         return $entry;
     }
+    public function show($id)
+    {
+        $entry = Entrie::where('id', $id)->first();
+        return $entry;
+    }
+    
     public function store(Request $request)
     {
-        $date = $request->input('date');
 
-        $rate = $request->input('rate');
+        $image = $request->file('image');
+        
+        $value = json_decode($request->value);
+        
+        $date = $value->date;
 
-        $note = $request->input('note');
+        $rate = $value->rate;
+
+        $note = $value->note;
 
         $user = Auth::user();
 
-        $entry = Entrie::create([
+        $image->storeAs('images/users/'.\Auth::id(),$image->getClientOriginalName(),'public'); 
+
+
+        $newImage = Image::create([
+            'path'=> '/images/users/'.\Auth::id()."/".$image->getClientOriginalName(),
+            'user_id' => $user->id,
+        ]);
+
+        // $newImage = new Image;
+        // $newImage->path = $image->getClientOriginalName();
+        // $newImage->save();
+
+        $entry = Entry::create([
             'user_id' => $user->id,
             'date'=> $date,
             'rate'=> $rate,
-            'note'=> $note
+            'note'=> $note,
+            'image_id'=> $newImage->id
         ]);
+
+        $entry->images()->attach($newImage->id);
         return $entry;
     }
 
@@ -47,5 +75,18 @@ class EntryController extends Controller
         
         return $entrie;
 
+    }
+    public function storeImage(Request $request){
+        $user_id = Auth::id();
+        $data= new Image();
+        $data ->user_id = $user_id;
+        $file = $request->file('image');
+        $file_name = $date('YmdHi') . $file->getClientOriginalName();
+        $file-> move(public_path('public/Image'), $filename);
+        $data ->path = $file_name;
+        $data->save();
+        
+        return $data;
+       
     }
 }
