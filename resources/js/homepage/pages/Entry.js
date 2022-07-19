@@ -33,7 +33,7 @@ export function Entry() {
     return (
         <>
             <div >
-                <form class="mainWrap" onSubmit={Save_entrie} >
+                <form className="mainWrap" onSubmit={Save_entrie} >
                     
                     <input type='date' name='date' value={entry.date} onChange={(e) => setEntry({ ...entry, date: e.target.value })} />
                     <label>Rate your day from 0 to 10:</label>
