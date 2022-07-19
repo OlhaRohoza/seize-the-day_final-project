@@ -14,7 +14,8 @@ class Entry extends Model
         'user_id',
         'date',
         'rate',
-        'note'
+        'note',
+        'image_id'
     ];
 
     public function images()

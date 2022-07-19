@@ -6,8 +6,16 @@ import { useNavigate } from "react-router-dom";
 const EntryListElement = ({ element, setMessage }) => {
     const [formData, setFormData] = useState(null)
     const [openEdit, setOpenEdit] = useState(false)
+<<<<<<< HEAD
     const navigate = useNavigate();
 
+=======
+    
+    // const navigate = useNavigate();
+    
+    
+  
+>>>>>>> haris
     useEffect(() => {
 
         setFormData({ ...element });

@@ -39,7 +39,7 @@ input {
 button {
   background-color: #b693fe;
   height: 2em;
-  border: silver;
+  border: rgb(13, 4, 4);
   border-radius: 0.5em;
 }
 

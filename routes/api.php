@@ -23,5 +23,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/search/{phrase}', [EntryController::class, 'search']);
 Route::get('{period}/{value1?}/{value2?}', [EntryController::class, 'index']);
 
+// Route::post('/user/day/{user_id}',[ImageUploadController::class,'SaveImage']);
+// Route::post('/user/store-image',[EntryController::class,'storeImage'])
+// ->name('images.store');
+// Route::get('/user/view-image',[EntryController::class,'storeImage'])->name('images.view');
 
 // Route::get('{user_id}/year/{year}', [EntryController::class, 'year']);

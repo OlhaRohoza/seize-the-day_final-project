@@ -27,6 +27,8 @@ function Day() {
 
     setLoadingEntries(false)
 
+      setLoadingEntries(false)
+      console.log(res.data)
   }
 
   useEffect(() => {
