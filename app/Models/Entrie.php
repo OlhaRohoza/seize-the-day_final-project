@@ -19,9 +19,9 @@ class Entrie extends Model
         'image_id'
     ];
 
-    public function images()
+    public function image()
     {
-        return $this->belongsToMany(Image::class);
+        return $this->belongsTo(Image::class);
     }
 
 }

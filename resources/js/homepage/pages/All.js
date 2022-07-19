@@ -18,7 +18,7 @@ export function All() {
         const payload = { type: 'all' };
 
         const res = await getEntries(payload);
-
+        console.log(res);
         setEntries(res);
         setLoadingEntries(false)
 

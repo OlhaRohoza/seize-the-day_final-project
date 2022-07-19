@@ -20,27 +20,27 @@ class EntryController extends Controller
 
         if ($period == 'all') {
 
-            $values = Entry::orderBy('date')->where('user_id', $id)->get();
+            $values = Entry::orderBy('date')->with('image')->where('user_id', $id)->get();
 
             return $values;
         } else if ($period == 'day') {
 
             $date = $value1;
 
-            $values = Entry::where('user_id', $id)->where('date', $date)->get();
+            $values = Entry::where('user_id', $id)->with('image')->where('date', $date)->get();
 
             return $values;
         } else if ($period == 'month') {
 
             $year = $value1;
             $month = $value2;
-            $values = Entry::where('user_id', $id)->orderBy('date')->where('date', 'like', $year . '-' . $month . '%')->get();
+            $values = Entry::where('user_id', $id)->with('image')->orderBy('date')->where('date', 'like', $year . '-' . $month . '%')->get();
 
             return $values;
         } else if ($period == 'year') {
 
             $year = $value1;
-            $values = Entry::where('user_id', $id)->where('date', 'like', $year . '%')->get();
+            $values = Entry::where('user_id', $id)->with('image')->where('date', 'like', $year . '%')->get();
             // dd($values);
             return $values;
         } else {

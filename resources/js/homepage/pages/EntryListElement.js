@@ -6,16 +6,8 @@ import { useNavigate } from "react-router-dom";
 const EntryListElement = ({ element, setMessage }) => {
     const [formData, setFormData] = useState(null)
     const [openEdit, setOpenEdit] = useState(false)
-<<<<<<< HEAD
     const navigate = useNavigate();
 
-=======
-    
-    // const navigate = useNavigate();
-    
-    
-  
->>>>>>> haris
     useEffect(() => {
 
         setFormData({ ...element });
@@ -75,6 +67,10 @@ const EntryListElement = ({ element, setMessage }) => {
                             <textarea name="note" value={formData.note || ''} onChange={handleChange} style={{ height: '400px' }} />
                         </Fragment> : element.note
                 }
+            </div>
+            
+            <div className="Entry--day-part">
+                <img src={element?.image?.path} alt="entry-image" />
             </div>
 
             <div className="Entry--day-part" style={{ marginTop: '2em' }}>
