@@ -39,21 +39,21 @@ export function Graph({ entries = [] }) {
                         data: entries.map((element) => element.rate),
                         fill: true,
                         backgroundColor: "#fafafa",
-                        borderColor: "#7c73e6"
+                        borderColor: "#b693fe"
                     },
                 ],
-                // options: {
-                //     scales: {
-                //         yAxes: [{
-                //             ticks: {
-                //                 beginAtZero: true,
-                //                 max: 10,
-                //                 min: 0
-                //             }
-                //         }]
-                //     }
-                // }
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true,
+                                min: 0,
+                                max: 10
+                            }
+                        }]
+                    }
 
+                }
             };
 
             setChartData(data)

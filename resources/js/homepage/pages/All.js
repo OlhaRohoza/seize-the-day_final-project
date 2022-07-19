@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import React, { Fragment, useEffect, useState } from "react";
 import { getEntries } from "../actions/entries";
 
+
 export function All() {
 
     const [entries, setEntries] = useState([])
@@ -31,6 +32,7 @@ export function All() {
 
     const navigate = useNavigate()
 
+
     return (
         <Fragment>
             <div className="Entries--all">
@@ -38,7 +40,7 @@ export function All() {
                     loadingEntries ? 'loading...' :
                         entries.length ?
                             (<><h4>You have {entries.length} entries</h4>
-                                {(entries.length % 25) > 1 ? <> <p>You have {Math.round(entries.length / 25)} pages. Page {currentPage + 1} </p> </> : ''}
+                                {(entries.length % 25) > 1 ? <> <p> This page is #{currentPage + 1}. Entries from {(currentPage * perPage) + 1} to  {(currentPage + 1) * perPage} </p> </> : ''}
                                 <table>
                                     <thead>
                                         <tr>
@@ -51,9 +53,10 @@ export function All() {
                                         {
                                             entries.slice(currentPage * perPage, (currentPage + 1) * perPage).map((entry) => (
                                                 <tr key={entry.id} onClick={() => navigate('/user/day/' + entry.date)}>
-                                                    <td>{entry.date} </td>
+                                                    <td style={{ width: '90px' }} >{entry.date} </td>
                                                     <td style={{ textAlign: 'center' }}>{entry.rate} </td>
-                                                    <td>{entry.note.length < 99 ? entry.note : entry.note.substring(0, 100)} ...</td>
+                                                    {/* <td>{entry.note} <span className="read--more">Check the entry...</span></td> */}
+                                                    <td>{entry.note.length < 99 ? entry.note : entry.note.substring(0, 100)} ... <span className="read--more">Read more...</span></td>
                                                 </tr>)
                                             )
                                         }
@@ -63,7 +66,7 @@ export function All() {
                                 </table>
                                 <div className="page--all--buttons" style={{ textAlign: 'center' }}>
                                     {
-                                        !!currentPage && <button onClick={() => setCurrentPage(!currentPage ? currentPage : currentPage - 1)}>back</button>
+                                        !!currentPage && <button onClick={() => setCurrentPage(!currentPage ? currentPage : currentPage - 1)} style={{ marginRight: '1em' }}>back</button>
                                     }
                                     {
                                         entries.length - ((currentPage || 1) * perPage) > perPage && <button onClick={() => setCurrentPage(currentPage + 1)}>next</button>

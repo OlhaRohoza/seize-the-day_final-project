@@ -61,7 +61,7 @@ export function MonthPage() {
                                                 <tr key={entry.id} onClick={() => navigate('/user/day/' + entry.date)}>
                                                     <td>{entry.date} </td>
                                                     <td> </td>
-                                                    <td>{entry.note.length < 99 ? entry.note : entry.note.substring(0, 100)} ... <strong>Click here to see more</strong></td>
+                                                    <td>{entry.note.length < 99 ? entry.note : entry.note.substring(0, 100)} ... <span className="read--more">Read more...</span></td>
                                                 </tr>)
                                             )
                                         }
@@ -75,7 +75,7 @@ export function MonthPage() {
                         }
                     </div>
                     <div className="month--pictures">
-                        pictures
+                        {/* pictures */}
                     </div></>
 
             }

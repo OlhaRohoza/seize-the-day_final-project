@@ -32,6 +32,7 @@ function Sidebar() {
     }
     const handleDate = (date) => {
         setStartDateInline(date)
+
         navigate('/user/day/' + moment(date).format('YYYY-MM-DD'))
     }
 

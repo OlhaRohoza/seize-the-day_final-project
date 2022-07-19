@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Entrie;
+use App\Models\Entry;
 use Auth;
 
 class EntryController extends Controller
@@ -25,9 +26,9 @@ class EntryController extends Controller
 
         $entry = Entrie::create([
             'user_id' => $user->id,
-            'date'=> $date,
-            'rate'=> $rate,
-            'note'=> $note
+            'date' => $date,
+            'rate' => $rate,
+            'note' => $note
         ]);
         return $entry;
     }
@@ -39,13 +40,22 @@ class EntryController extends Controller
         $note = $request->input('note');
 
         $entrie = Entrie::where('id', $id)->first();
-        
+
         $entrie->rate = $rate;
         $entrie->note = $note;
 
         $entrie->save();
-        
+        return ['message' => 'The Entry was edited'];
         return $entrie;
+    }
 
+    public function destroy($id)
+    {
+        // dd($id);
+        $entry = Entry::findOrFail($id);
+
+        $entry->delete();
+        return ['message' => 'The Entry was deleted'];
+        // return redirect()->route('home');
     }
 }

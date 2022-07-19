@@ -3,8 +3,7 @@ import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
 
-
-const EntryListElement = ({ element }) => {
+const EntryListElement = ({ element, setMessage }) => {
     const [formData, setFormData] = useState(null)
     const [openEdit, setOpenEdit] = useState(false)
     const navigate = useNavigate();
@@ -21,10 +20,25 @@ const EntryListElement = ({ element }) => {
 
     const handleUpdate = async () => {
         const res = await axios.put('/user/day/' + element.id, formData)
-        console.log(res.data)
-        setOpenEdit(false)
+        console.log(res.data);
+        setOpenEdit(false);
+        setMessage(res.data.message);
+        setTimeout(() => {
+            setMessage(false)
+        }, 3000);
         navigate('/user/day/' + element.date)
 
+    }
+
+    const handleDelete = async () => {
+        console.log(element.id);
+        const res = await axios.delete('/user/day/' + element.id);
+        setMessage(res.data.message);
+        setTimeout(() => {
+            setMessage(false)
+        }, 3000);
+        // alert("The Entry has been deleted");
+        navigate('/user/day/' + element.date);
     }
 
 
@@ -52,7 +66,9 @@ const EntryListElement = ({ element }) => {
 
             <div className="Entry--day-part" style={{ marginTop: '2em' }}>
                 {
-                    openEdit ? <button onClick={() => handleUpdate()} >Submit</button> : <button onClick={() => setOpenEdit(true)} >Edit</button>
+                    openEdit
+                        ? <button onClick={() => handleUpdate()} >Submit</button>
+                        : <><button onClick={() => setOpenEdit(true)} >Edit this Entry</button> <button onClick={handleDelete} >Delete this Entry</button></>
                 }
             </div>
         </div>

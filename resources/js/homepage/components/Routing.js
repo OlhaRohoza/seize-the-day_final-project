@@ -16,7 +16,9 @@ export function Routing() {
     const { user } = useContext(UserContext);
     return (
         <Routes>
+
             <Route path="/" element={<Homepage />} />
+
             {
                 user ? <Fragment>
                     <Route path="/user" element={<Entry />} />
@@ -29,12 +31,12 @@ export function Routing() {
                     <Fragment>
                         <Route path="/login" element={<Login />} />
                         <Route path="/registration/" element={<Registration />} />
-
                     </Fragment>
             }
 
             <Route path="*" element={<Homepage />} />
             <Route path="/about-us" element={<AboutUs />} />
+
         </Routes>
     )
 }
