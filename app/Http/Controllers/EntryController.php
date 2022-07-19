@@ -91,7 +91,7 @@ class EntryController extends Controller
         $data ->user_id = $user_id;
         $file = $request->file('image');
         $file_name = $date('YmdHi') . $file->getClientOriginalName();
-        $file-> move(public_path('public/Image'), $filename);
+        $file-> move(public_path('public/Image'), $file_name);
         $data ->path = $file_name;
         $data->save();
         
