@@ -7,7 +7,7 @@ import Day from "../pages/Day";
 import Button from "./Button";
 import Searchbar from './Searchbar';
 import moment from 'moment';
-import './sidebar.css';
+
 
 
 function Sidebar() {
@@ -31,16 +31,21 @@ function Sidebar() {
         console.log('Random day');
         navigate('/')
     }
+    const handleDate = (date) => {
+        setStartDateInline(date)
+
+        navigate('/user/day/' + moment(date).format('YYYY-MM-DD'))
+    }
 
     return (
 
-        <div className="sidebar" style={{ backgroundColor: '#ffe9e3' }}>
+        <div className="sidebar" >
             <br />
             <Searchbar />
 
             <DatePicker className='Calendar--Inline'
                 selected={startDateInline}
-                onChange={(date) => setStartDateInline(date)}
+                onChange={(date) => handleDate(date)}
                 inline
             />
 

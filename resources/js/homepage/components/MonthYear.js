@@ -6,8 +6,8 @@ export function MonthYear({ name, entries, sign, year }) {
 
     return (
         <div className="page--year--month" onClick={() => navigate(`/user/report/month/${year}/${sign}`)} >
-            <h4>{name}</h4>
-            <p>
+            <h1>{name}</h1>
+            <p className="read--more">
                 {
                     entries
                         .filter(entry => entry.date.match(new RegExp(`-${sign}-`, "i")))

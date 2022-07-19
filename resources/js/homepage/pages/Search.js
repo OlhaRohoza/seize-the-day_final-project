@@ -29,7 +29,7 @@ export function Search() {
 
         fetchData()
 
-    }, [])
+    }, [params])
 
     return (
         <Fragment>
@@ -54,7 +54,7 @@ export function Search() {
                                                 <tr key={entry.id} onClick={() => navigate('/user/day/' + entry.date)}>
                                                     <td>{entry.date} </td>
                                                     <td style={{ textAlign: 'center' }}>{entry.rate} </td>
-                                                    <td>{entry.note.length < 99 ? entry.note : entry.note.substring(0, 100)} ...</td>
+                                                    <td>{entry.note.length < 99 ? entry.note : entry.note.substring(0, 100)} ... <span className="read--more">Read more...</span></td>
                                                 </tr>)
                                             )
                                         }

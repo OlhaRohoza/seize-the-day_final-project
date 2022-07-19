@@ -29,7 +29,7 @@ export function YearPage() {
 
         fetchData()
 
-    }, [])
+    }, [params])
 
     return (
         <Fragment>

@@ -6,9 +6,6 @@ import UserContext from '../UserContext';
 import { useContext } from 'react';
 import LogoutButton from '../pages/LogoutButton';
 
-
-
-
 function NavBar() {
   const { user, setUser } = useContext(UserContext);
   return (
@@ -22,7 +19,14 @@ function NavBar() {
       <div className='link'>
         {
           user ? (
-            <LogoutButton />
+            <>
+
+              <h4>{user.name}</h4>
+
+              <LogoutButton />
+
+            </>
+
           )
             : (
               <>
@@ -36,7 +40,6 @@ function NavBar() {
                   <Link to='/registration'>
                     Register
                   </Link>
-
                 </div>
 
               </>

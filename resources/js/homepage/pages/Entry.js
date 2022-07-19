@@ -1,12 +1,12 @@
 import { useState } from "react";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import './App.css';
 
 export function Entry() {
-    const [entry,setEntry] = useState({
-        
-        date:"",
+    const [entry, setEntry] = useState({
+
+        date: "",
         rate: "0",
         note: "",
         picture: "",
@@ -16,7 +16,7 @@ export function Entry() {
 
     const navigate = useNavigate()
 
-    const Save_entrie = async (e) =>{
+    const Save_entrie = async (e) => {
         e.preventDefault()
         // if (!entry.date || !entry.rate || !entry.note) {
         //     console.log(entry)
