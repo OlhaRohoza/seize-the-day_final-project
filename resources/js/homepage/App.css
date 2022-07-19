@@ -134,3 +134,8 @@ table {
   font-weight: bold;
   text-decoration: underline;
 }
+
+img {
+  padding: 0.5em;
+  height: 250px;
+}

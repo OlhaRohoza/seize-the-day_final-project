@@ -20,14 +20,14 @@ class EntryController extends Controller
         $entry = Entrie::where('id', $id)->first();
         return $entry;
     }
-    
+
     public function store(Request $request)
     {
 
         $image = $request->file('image');
-        
+
         $value = json_decode($request->value);
-        
+
         $date = $value->date;
 
         $rate = $value->rate;
@@ -36,11 +36,11 @@ class EntryController extends Controller
 
         $user = Auth::user();
 
-        $image->storeAs('images/users/'.\Auth::id(),$image->getClientOriginalName(),'public'); 
+        $image->storeAs('images/users/' . \Auth::id(), $image->getClientOriginalName(), 'public');
 
 
         $newImage = Image::create([
-            'path'=> '/images/users/'.\Auth::id()."/".$image->getClientOriginalName(),
+            'path' => '/images/users/' . \Auth::id() . "/" . $image->getClientOriginalName(),
             'user_id' => $user->id,
         ]);
 
@@ -50,10 +50,10 @@ class EntryController extends Controller
 
         $entry = Entry::create([
             'user_id' => $user->id,
-            'date'=> $date,
-            'rate'=> $rate,
-            'note'=> $note,
-            'image_id'=> $newImage->id
+            'date' => $date,
+            'rate' => $rate,
+            'note' => $note,
+            'image_id' => $newImage->id
         ]);
 
         $entry->images()->attach($newImage->id);
@@ -85,17 +85,17 @@ class EntryController extends Controller
         return ['message' => 'The Entry was deleted'];
         // return redirect()->route('home');
     }
-    public function storeImage(Request $request){
+    public function storeImage(Request $request)
+    {
         $user_id = Auth::id();
-        $data= new Image();
-        $data ->user_id = $user_id;
+        $data = new Image();
+        $data->user_id = $user_id;
         $file = $request->file('image');
         $file_name = $date('YmdHi') . $file->getClientOriginalName();
-        $file-> move(public_path('public/Image'), $filename);
-        $data ->path = $file_name;
+        $file->move(public_path('public/Image'), $file_name);
+        $data->path = $file_name;
         $data->save();
-        
+
         return $data;
-       
     }
 }

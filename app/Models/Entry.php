@@ -18,8 +18,8 @@ class Entry extends Model
         'image_id'
     ];
 
-    public function image()
+    public function images()
     {
-        return $this->belongsTo(Image::class);
+        return $this->belongsToMany(Image::class);
     }
 }
