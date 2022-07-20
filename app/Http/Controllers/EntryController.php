@@ -48,6 +48,7 @@ class EntryController extends Controller
         // $newImage->path = $image->getClientOriginalName();
         // $newImage->save();
 
+
         $entry = Entry::create([
             'user_id' => $user->id,
             'date' => $date,
@@ -57,6 +58,10 @@ class EntryController extends Controller
         ]);
 
         $entry->images()->attach($newImage->id);
+
+
+
+
         return $entry;
     }
 

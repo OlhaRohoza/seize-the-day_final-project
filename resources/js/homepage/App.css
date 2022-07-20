@@ -132,6 +132,7 @@ table {
 .read--more {
   color: #b693fe;
   font-weight: bold;
+  padding: 0;
   text-decoration: underline;
 }
 
