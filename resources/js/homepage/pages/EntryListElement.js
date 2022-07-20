@@ -40,13 +40,14 @@ const EntryListElement = ({ element, setMessage }) => {
         // alert("The Entry has been deleted");
         navigate('/user/day/' + element.date);
     }
-//    const refreshPage = async () => {
-//         window.location.reload(true)
-//       }    
-   
-   
+    //    const refreshPage = async () => {
+    //         window.location.reload(true)
+    //       }    
 
-    
+    // console.log(element.images[0].path);
+
+
+
     return (
         <div className="Entry--day-display">
             <div className="Entry--day-part">
@@ -68,9 +69,11 @@ const EntryListElement = ({ element, setMessage }) => {
                         </Fragment> : element.note
                 }
             </div>
-            
+
             <div className="Entry--day-part">
-                <img src={element?.image?.path} alt="entry-image" />
+                {element.images ? element.images.map(image => (
+                    <img src={image.path} alt="entry-image" key={image.id} />
+                )) : ''}
             </div>
 
             <div className="Entry--day-part" style={{ marginTop: '2em' }}>
