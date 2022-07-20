@@ -24,7 +24,7 @@ class EntryController extends Controller
     public function store(Request $request)
     {
 
-        $image = $request->file('image');
+
 
         $value = json_decode($request->value);
 
@@ -36,31 +36,32 @@ class EntryController extends Controller
 
         $user = Auth::user();
 
-        $image->storeAs('images/users/' . \Auth::id(), $image->getClientOriginalName(), 'public');
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $image->storeAs('images/users/' . \Auth::id(), $image->getClientOriginalName(), 'public');
 
 
-        $newImage = Image::create([
-            'path' => '/images/users/' . \Auth::id() . "/" . $image->getClientOriginalName(),
-            'user_id' => $user->id,
-        ]);
+            $newImage = Image::create([
+                'path' => '/images/users/' . \Auth::id() . "/" . $image->getClientOriginalName(),
+                'user_id' => $user->id,
+            ]);
+        }
 
         // $newImage = new Image;
         // $newImage->path = $image->getClientOriginalName();
         // $newImage->save();
-
 
         $entry = Entry::create([
             'user_id' => $user->id,
             'date' => $date,
             'rate' => $rate,
             'note' => $note,
-            'image_id' => $newImage->id
+            'image_id' => empty($newImage) ? 0 : $newImage->id
         ]);
 
-        $entry->images()->attach($newImage->id);
-
-
-
+        if (!empty($newImage)) {
+            $entry->images()->attach($newImage->id);
+        }
 
         return $entry;
     }
@@ -96,14 +97,12 @@ class EntryController extends Controller
         $data = new Image();
         $data->user_id = $user_id;
         $file = $request->file('image');
+
         $file_name = $date('YmdHi') . $file->getClientOriginalName();
-<<<<<<< HEAD
-        $file-> move(public_path('public/Image'), $file_name);
-        $data ->path = $file_name;
-=======
+
+        $file_name = date('YmdHi') . $file->getClientOriginalName();
         $file->move(public_path('public/Image'), $file_name);
         $data->path = $file_name;
->>>>>>> 3c1e7457bb46e2992bffb0371c51819d9f90a5ba
         $data->save();
 
         return $data;
