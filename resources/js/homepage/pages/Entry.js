@@ -54,10 +54,13 @@ export function Entry() {
                     <input className="name" type='date' name='date' value={entry.date} onChange={(e) => setEntry({ ...entry, date: e.target.value })} />
                     <input className="rate" type='number' name='rate' value={entry.rate} onChange={(e) => setEntry({ ...entry, rate: e.target.value })} />
                     <textarea className="mainArea" type='note' name='note' value={entry.note} style={{ height: '400px' }} placeholder="Here you can add a note about your day, some ideas and insights, who you are grateful for something..." onChange={(e) => setEntry({ ...entry, note: e.target.value })} />
-                    <input className="bigBtn" type='file' name='image' multiple onChange={(e)=> setImage(e.target.files[0])} />
-                    <button className="bigBtn">Save</button>
 
-                </form>
+                    <div className="wrap2">
+                        <span className="img_text">Add your Image</span>
+                        <input className="bigBtn" type='file' name='image' multiple onChange={(e)=> setImage(e.target.files[0])} />
+                        <button className="bigBtn2">Save</button>
+                    </div> 
+               </form>
                 
             </div>
 
