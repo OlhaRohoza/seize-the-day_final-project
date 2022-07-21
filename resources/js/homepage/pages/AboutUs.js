@@ -2,9 +2,9 @@ import './AboutUsStyle.css';
 
 
 export function AboutUs() {
-   
 
-    
+
+
     return (
         // <div className='main'>
         //     <div>
@@ -34,7 +34,7 @@ export function AboutUs() {
                                 </div>
                     </div>
                 </div> */}
-                
+
                 <div className="cards">
                     <div className="cards_item">
                         <div className="card">
@@ -43,46 +43,47 @@ export function AboutUs() {
                             </div> */}
                             <div className="card_content">
                                 <div className="card_title">
-                                <h2 className="card_title">Our Team</h2>
-                                <p className="card_text"></p>
+                                    <h2 className="card_title">Our Team</h2>
+                                    <p className="card_text"></p>
                                 </div>
-                                
+
                             </div>
                             <div className='about-team'>
                                 <div>
-                                  <div className='main_layer'>
-                                     <img className="img2" src="./images/haris.webp"/>
-                                     <p className='img_name'> Nallattuthodika HarisRahman</p>
-                                     <p className='img_name'>junior full stack developer </p>
-                                     <p className='icon_one'><img className='icon' src='./images/LinkedIn-Symbole.png'/>
-                                     <a className='icon1' href='https://www.linkedin.com/in/nallattuthodika-harisrahman/'>https://www.linkedin.com/in/nallattuthodika-harisrahman/</a>
-                                     </p>
-                                     <p className='icon_one'><img className='icon_im' src='./images/email.webp'/>harisrahman9249@gmail.com</p>
-                                     {/* <p className='git'><img className='icon_im_git' src='./images/git.jpg'/><a href='https://github.com/harisrahan9249'>https://github.com/harisrahan9249</a></p> */}
-                                    
-                                     
+                                    <div className='main_layer'>
+                                        <img className="img2" src="/images/haris.webp" />
+                                        <p className='img_name'> Nallattuthodika HarisRahman</p>
+                                        <p className='img_name'>junior full stack developer </p>
+                                        <p className='icon_one'><img className='icon' src='/images/LinkedIn-Symbole.png' />
+                                            <a className='icon1' href='https://www.linkedin.com/in/nallattuthodika-harisrahman/'>https://www.linkedin.com/in/nallattuthodika-harisrahman/</a>
+                                        </p>
+                                        <p className='icon_one' ><img className='icon_im' src='/images/email.webp' />
+                                            <p className='icon2'>harisrahman9249@gmail.com</p>
+                                        </p>
+
+
                                     </div>
-                                    
+
                                 </div>
                                 <div>
-                                  <div className='main_layer'>
-                                     <img className="img1" src="./images/olha.jpg"/>
-                                     <p className='img_name'> Olha Rohoza</p>
-                                     <p className='img_name'>junior full stack developer</p>
-                                     <p className='icon_one'><img className='icon' src='./images/LinkedIn-Symbole.png'/>
-                                     <a className='icon1' href='https://www.linkedin.com/in/olha-rohoza/'>https://www.linkedin.com/in/olha-rohoza/</a>
-                                     </p>
-                                     <p className='icon_one'><img className='icon_im' src='./images/email.webp'/>
-                                     <p className='icon2' >olha.rohoza@gmail.com</p>
-                                     </p>
+                                    <div className='main_layer'>
+                                        <img className="img1" src="./images/olha.jpg" />
+                                        <p className='img_name'> Olha Rohoza</p>
+                                        <p className='img_name'>junior full stack developer</p>
+                                        <p className='icon_one'><img className='icon' src='/images/LinkedIn-Symbole.png' />
+                                            <a className='icon1' href='https://www.linkedin.com/in/olha-rohoza/'>https://www.linkedin.com/in/olha-rohoza/</a>
+                                        </p>
+                                        <p className='icon_one'><img className='icon_im' src='/images/email.webp' />
+                                            <p className='icon2' >olha.rohoza@gmail.com</p>
+                                        </p>
                                     </div>
-                                    
+
                                 </div>
                             </div>
-                          
+
                         </div>
                     </div>
-                  
+
                 </div>
             </div>
 

@@ -70,7 +70,7 @@ function Registration() {
                                 {/* <img src={lock} alt="emial" className='email' /> */}
                                 <input type="password" autoComplete='off' placeholder='Confirm Password' className='fill' value={Info.password_confirmation} onChange={(e) => setInfo({ ...Info, password_confirmation: e.target.value })} />
                             </div>
-                            <div className='btn'>
+                            <div>
                                 <button style={{ backgroundColor: 'white' }}>Submit</button>
                                 {/* <p>If Account exist then</p><Link className='mn-link' to='/login'><a>Login!!!</a></Link> */}
                             </div>

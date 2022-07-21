@@ -72,11 +72,11 @@ function Login() {
                             </div>
 
 
-                            <div className='btn'>
-                                {/* <p>If Account exist then</p><Link className='link' to='/registration'><a>Register!!!</a></Link> */}
+                            {/* <div className='btn'> */}
+                            {/* <p>If Account exist then</p><Link className='link' to='/registration'><a>Register!!!</a></Link> */}
 
 
-                            </div>
+                            {/* </div> */}
                             {/* <Link className='mn-link' to='/ldogout'><a>!!Logout!!!</a></Link> */}
 
                         </div>
