@@ -56,8 +56,6 @@ button {
   padding: 10px;
 } */
 
-
-
 .page--year {
   display: flex;
   flex-direction: column;
@@ -89,9 +87,9 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: -100px;
   height: 100vh;
   width: 100vw;
-
   gap: 2em;
 }
 
