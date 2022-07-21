@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Login from './pages/Login';
 import Sidebar from './components/Sidebar';
@@ -41,7 +41,7 @@ function App() {
 
       <Router>
 
-        <div>
+        <Fragment>
 
           <Navbar />
           <div className='main--part'>
@@ -52,7 +52,7 @@ function App() {
             <MainContent />
           </div>
           <Footer />
-        </div>
+        </Fragment>
 
       </Router>
 
