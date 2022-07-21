@@ -15,25 +15,38 @@ body {
 }
 
 .wrap {
-  max-width: 900px;
-  width: 80%;
+  
+  width: 93%;
   margin: 0 auto;
-  padding: 40px 0px 40px 0px;
+  padding: 10px 0px 40px 0px;
+  height: 20%;
+
+}
+
+.wrap2 {
+  max-width: 800px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 0px;
+  height: 20%;
+
 }
 
 .wrap h1 {
-  font-size: 4em;
+  font-size: 35px;
   font-family: "Gentium Book Basic";
   font-weight: 600;
   color: black;
   text-shadow: 0px 1px 0px rgba(0, 0, 0, .1);
   -webkit-font-smoothing: antialiased;
   letter-spacing: -3px;
+  padding-bottom: 29px;
 
 }
 
 span {
-  padding-left: 8em;
+  padding-top: 2em;
+  padding-left: 127px;
   font-size: large;
   font-weight: bold;
 
@@ -41,6 +54,9 @@ span {
 }
 
 .wrap p {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   font-family: "Gentium Book Basic";
   font-size: 1.5em;
   color: #fff;
@@ -64,7 +80,7 @@ span {
   width: 49%;
   border: 0;
   background: #fff;
-  padding: 20px;
+  padding: 9px;
   font-size: 1.2em;
   font-family: "Gentium Book Basic";
   box-shadow: 4px 4px 0px rgba(0, 0, 0, .1);
@@ -77,7 +93,7 @@ span {
   width: 40%;
   border: 0;
   background: #fff;
-  padding: 20px;
+  padding: 9px;
   font-size: 1.2em;
   font-family: "Gentium Book Basic";
   box-shadow: 4px 4px 0px rgba(0, 0, 0, .1);
@@ -108,29 +124,51 @@ span {
   float: right;
 }
 
-
-.mainArea {
+.img_text{
+  padding-top: 2em;
+  padding-left: 5px;
+  font-size: large;
+  font-weight: bold;
   width: 100%;
+ 
+}
+.mainArea {
+  width: 93%;
   box-shadow: 4px 4px 0px rgba(0, 0, 0, .1);
-  font-size: 1.4em;
-  margin-top: 20px;
-  padding: 20px;
+  font-size: 1.2em;
+  margin-top: 2px;
+  padding: 2px;
   font-family: "Gentium Book Basic";
   color: #111;
-  height: 400px;
-  resize: none;
+  height: 20%;
+  
 }
 
 .bigBtn {
-  width: 100%;
-  padding: 20px;
+  width: 50%;
+  margin-right: 0em;
+  padding: 0px;
   text-align: center;
   margin-top: 10px;
-  font-size: 1.5em;
+  font-size: 14px;
   font-family: "Gentium Book Basic";
   background: #b693fe;
   color: black;
   cursor: pointer;
+  margin-left: 9px;
+}
+.bigBtn2 {
+  width: 51%;
+    padding: 10px;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 149px;
+    height: 33px;
+    font-size: 16px;
+    font-family: "Gentium Book Basic";
+    background: #b693fe;
+    color: black;
+    cursor: pointer;
 }
 
 /* Landscape mobile & down */
