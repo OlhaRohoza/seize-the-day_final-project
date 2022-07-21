@@ -93,6 +93,7 @@ a:hover {
 } */
 .navigation a,
 .footer a,
+.homepage a,
 .navigation p {
   color: black;
   text-decoration: none;
