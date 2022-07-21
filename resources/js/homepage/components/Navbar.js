@@ -1,5 +1,3 @@
-
-
 import './NavbarStyle.css';
 import { Link } from 'react-router-dom';
 import UserContext from '../UserContext';
@@ -20,13 +18,9 @@ function NavBar() {
         {
           user ? (
             <>
-
               <p><strong> {user.name}</strong></p>
-
               <LogoutButton />
-
             </>
-
           )
             : (
               <>
@@ -41,7 +35,6 @@ function NavBar() {
                     Register
                   </Link>
                 </div>
-
               </>
 
             )
