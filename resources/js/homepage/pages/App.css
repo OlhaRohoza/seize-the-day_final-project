@@ -1,6 +1,6 @@
-html {
+/* html {
   height: 100%;
-}
+} */
 
 
 .login-box {
@@ -19,7 +19,7 @@ html {
 
 .login-box h2,
 h3 {
-  margin: 0 0 30px;
+  margin: 0;
   padding: 0;
   color: #fff;
   text-align: center;

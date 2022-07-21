@@ -35,12 +35,14 @@ export function All() {
 
     return (
         <Fragment>
-            <div className="Entries--all">
+            <div className="entries--all">
                 {
                     loadingEntries ? 'loading...' :
                         entries.length ?
-                            (<><h4>You have {entries.length} entries</h4>
+                            (<><h2>You have {entries.length} entries</h2> <br />
+
                                 {(entries.length % 25) > 1 ? <> <p> This page is #{currentPage + 1}. Entries from {(currentPage * perPage) + 1} to  {(currentPage + 1) * perPage} </p> </> : ''}
+                                <br />
                                 <table>
                                     <thead>
                                         <tr>

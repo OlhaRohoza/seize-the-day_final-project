@@ -9,11 +9,11 @@ function Day() {
 
   const [message, setMessage] = useState(false);
   const [entries, setEntries] = useState([])
-    const [loadingEntries, setLoadingEntries] = useState(false)
-    const params = useParams();
-    
-    
-    console.log(params);
+  const [loadingEntries, setLoadingEntries] = useState(false)
+  const params = useParams();
+
+
+  console.log(params);
 
   // console.log(params);
 
@@ -27,8 +27,8 @@ function Day() {
 
     setLoadingEntries(false)
 
-      setLoadingEntries(false)
-      console.log(res.data)
+    setLoadingEntries(false)
+    console.log(res.data)
   }
 
   useEffect(() => {
@@ -44,7 +44,7 @@ function Day() {
       {loadingEntries ? 'loading...'
         : entries.length
           ? <div className="Entry--day-display">
-            {message ? <h4 style={{ color: '#1Fd655' }}>{message}</h4> : ''}
+            {message ? (<><h4 style={{ color: '#1Fd655' }}>{message}</h4><br /></>) : ''}
             <h1>
               Entry from {moment(params.date).format('Do MMMM YYYY')}
             </h1>
@@ -56,8 +56,8 @@ function Day() {
             </div>
           </div >
           : (<>
-            {message ? <h4 style={{ color: 'red' }}>{message}</h4> : ''}
-            <p>You have no entries on {moment(params.date).format('Do MMMM YYYY')}. </p>
+            {message ? (<><h4 style={{ color: 'red' }}>{message}</h4><br /></>) : ''}
+            <h2>You have no entries on {moment(params.date).format('Do MMMM YYYY')}. </h2><br />
             <Link to='/user'>You can create here </Link>
           </>)
 

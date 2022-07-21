@@ -50,8 +50,8 @@ const EntryListElement = ({ element, setMessage }) => {
 
     return (
         <div className="Entry--day-display">
-            <div className="Entry--day-part">
-                <h4>Rate of the day: </h4>
+            <div className="entry--day-part">
+                <h4 style={{ paddingBottom: '5px' }}>Rate of the day: </h4>
                 {
                     openEdit
                         ? <Fragment>
@@ -60,8 +60,9 @@ const EntryListElement = ({ element, setMessage }) => {
                         : element.rate
                 }
             </div>
-            <div className="Entry--day-part">
-                <h4>Note of the day: </h4>
+            <br />
+            <div className="entry--day-part">
+                <h4 style={{ paddingBottom: '5px' }}>Note of the day: </h4>
                 {
                     openEdit
                         ? <Fragment>
@@ -83,7 +84,7 @@ const EntryListElement = ({ element, setMessage }) => {
                         : <><button onClick={() => setOpenEdit(true)} >Edit this Entry</button> <button onClick={handleDelete} >Delete this Entry</button></>
                 }
             </div>
-        </div>
+        </div >
     )
 }
 export default EntryListElement

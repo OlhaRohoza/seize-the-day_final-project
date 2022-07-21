@@ -15,7 +15,7 @@ function Searchbar() {
     return (
         <div className="search--notes"  >
             <input type='text' placeholder="Search through entries" value={query} onChange={(e) => setQuery(e.target.value)} />
-            <input type='submit' value='search' style={{ marginLeft: '5px', backgroundColor: '#b693fe', color: 'black', borderRadius: '0.25em', border: 'silver' }} onClick={handleClick} />
+            <input type='submit' value='search' style={{ marginLeft: '5px', backgroundColor: '#b693fe', color: 'black', borderRadius: '0.25em', border: 'silver', padding: '0 10px' }} onClick={handleClick} />
         </div>
     )
 }

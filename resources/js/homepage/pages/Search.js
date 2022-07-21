@@ -34,12 +34,13 @@ export function Search() {
     return (
         <Fragment>
             <div className="entries--search-result">
-                <h2> You are searching for <i>{params.phrase}</i> </h2>
+                <h2> You are searching for <i>{params.phrase}</i> </h2> <br />
                 {
                     loadingEntries ? 'loading...' :
                         entries.length ?
-                            (<><h4>You have {entries.length} entries</h4>
+                            (<><h4>You have {entries.length} entries</h4> <br />
                                 {/* {(entries.length % 25) > 1 ? <> <p>You have {Math.round(entries.length / 25)} pages. Page {currentPage + 1} </p> </> : ''} */}
+                                <br />
                                 <table>
                                     <thead>
                                         <tr>

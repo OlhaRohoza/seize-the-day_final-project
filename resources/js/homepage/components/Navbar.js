@@ -21,7 +21,7 @@ function NavBar() {
           user ? (
             <>
 
-              <h4>{user.name}</h4>
+              <p><strong> {user.name}</strong></p>
 
               <LogoutButton />
 

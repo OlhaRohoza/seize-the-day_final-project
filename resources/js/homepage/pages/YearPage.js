@@ -35,7 +35,8 @@ export function YearPage() {
         <Fragment>
             {loadingEntries ? 'loading...' :
                 <>
-                    <h2 style={{ textAlign: 'center' }}> {params.year} YEAR</h2>
+                    <h1 style={{ textAlign: 'center' }}> {params.year} YEAR</h1>
+                    <br />
                     <h4 style={{ textAlign: 'center' }}> You have {entries.length} entries</h4>
 
                     <div className="page--year">

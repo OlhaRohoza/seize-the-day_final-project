@@ -5,8 +5,9 @@
 .navigation {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   height: 5em;
-  background: #e7eaf6;
+  background: #EBE0FF;
   padding: 2em;
 }
 
@@ -16,6 +17,7 @@ body {
 
 .navigation .logo h3 {
   color: #47483e;
+  padding-left: 4em;
   font-size: 2em;
 }
 
@@ -89,15 +91,18 @@ a:hover {
   margin-right: 2em;
 
 } */
-.navigation a {
+.navigation a,
+.footer a,
+.navigation p {
   color: black;
   text-decoration: none;
-  padding: 8px 8px;
-
+  margin: 8px 8px;
+  font-weight: 600;
 }
 
-.navigation a:hover {
-  color: #77A8A3;
+.navigation a:hover,
+.footer a:hover {
+  color: #b693fe;
 }
 
 .navigation .link {

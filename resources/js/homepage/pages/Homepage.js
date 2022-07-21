@@ -15,18 +15,14 @@ export function Homepage() {
 
     return (
         <div className="homepage">
-            <div className="homepage--box">
-                <p>DAYS</p>
-                <p>&#187;</p>
-                <p>WEEKS</p>
-                <p>&#187;</p>
-                <p>MONTHS</p>
-                <p>&#187;</p>
-                <p>YEARS</p>
-            </div>
             <h2>What are you writing for?</h2>
-            <h4>Whether you're looking for a tool <br /> to record your daily emotions and activities, ideas and insights, <br /> the "Seize the day" the best  application for it.</h4>
-            <h4>Today is the best day to start.</h4>
+            <br />
+            <p>Whether you're looking for a tool to record </p>
+            <p>your daily emotions and activities, ideas and insights, </p>
+            <p>the "Seize the day" the best  application for it.</p>
+            <p><strong>Today is the best day to start.</strong></p>
+            <br />
+
             <button style={{ height: '2em', fontSize: '1em', padding: '0.5em' }}><Link to='/registration'> Ready to start writing? Sign up now! </Link></button>
         </div>
     )

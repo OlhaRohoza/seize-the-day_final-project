@@ -53,6 +53,7 @@ function Registration() {
                     <div>
                         <div className='user-box'>
                             <h1>Registration</h1>
+                            <br />
                             <div>
 
                                 <input type="text" autoComplete='off' placeholder='Enter Name' className='fill' value={Info.name} onChange={(e) => setInfo({ ...Info, name: e.target.value })} />
@@ -70,8 +71,8 @@ function Registration() {
                                 <input type="password" autoComplete='off' placeholder='Confirm Password' className='fill' value={Info.password_confirmation} onChange={(e) => setInfo({ ...Info, password_confirmation: e.target.value })} />
                             </div>
                             <div className='btn'>
-                                <button>Submit</button>
-                                <p>If Account exist then</p><Link className='mn-link' to='/login'><a>Login!!!</a></Link>
+                                <button style={{ backgroundColor: 'white' }}>Submit</button>
+                                {/* <p>If Account exist then</p><Link className='mn-link' to='/login'><a>Login!!!</a></Link> */}
                             </div>
 
                         </div>

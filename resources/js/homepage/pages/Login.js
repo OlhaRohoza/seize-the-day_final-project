@@ -1,7 +1,7 @@
 
 import axios from 'axios';
 import React, { useState, useEffect, useContext } from 'react';
-import { Link,useNavigate  } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import UserContext from '../UserContext';
 import './App.css';
 /* import mail from "/images/email.png";
@@ -44,11 +44,11 @@ function Login() {
         // console.log(data.data);
 
         await setUser(data.data);
-        
+
         return navigate('/user');
 
     }
-    
+
 
 
     return (
@@ -58,6 +58,7 @@ function Login() {
                     <div>
                         <div className='user-box'>
                             <h1>Login</h1>
+                            <br />
                             <div className='mail-id'>
                                 {/* <img src={mail} alt="emial" className='email' /> */}
                                 <input type="email" placeholder='Enter Email' className='fill' autoComplete='off' value={Info.email} onChange={(e) => setInfo({ ...Info, email: e.target.value })} />
@@ -67,16 +68,16 @@ function Login() {
                                 <input type="password" placeholder='Enter New Password' className='fill' autoComplete='off' value={Info.password} onChange={(e) => setInfo({ ...Info, password: e.target.value })} />
                             </div>
                             <div>
-                                <button >Submit</button>
+                                <button style={{ backgroundColor: 'white', textAlign: 'left' }}>Submit</button>
                             </div>
 
 
                             <div className='btn'>
-                                <p>If Account exist then</p><Link className='link' to='/registration'><a>Register!!!</a></Link>
-                                
+                                {/* <p>If Account exist then</p><Link className='link' to='/registration'><a>Register!!!</a></Link> */}
+
 
                             </div>
-                            <Link className='mn-link' to='/ldogout'><a>!!Logout!!!</a></Link>
+                            {/* <Link className='mn-link' to='/ldogout'><a>!!Logout!!!</a></Link> */}
 
                         </div>
                     </div>

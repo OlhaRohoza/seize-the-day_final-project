@@ -47,6 +47,7 @@ export function MonthPage() {
                     <div className="month--notes">
                         {entries && entries.length >= 1
                             ? (<><h2>You have {entries.length} entries.</h2>
+                                <br />
                                 <table>
                                     <thead>
                                         <tr>
