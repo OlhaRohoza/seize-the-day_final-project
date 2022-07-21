@@ -1,0 +1,301 @@
+/* Font */
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
+
+/* Design */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+/* html {
+  background-color: #ecf9ff;
+}
+
+body {
+  color: #272727;
+  font-family: 'Quicksand', serif;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0;
+  padding: 1rem;
+  width: 100%;
+} */
+
+.main_card{
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  margin-left: 2em;
+  height: 120vh;
+
+}
+.main{
+  display: flex;
+  flex-direction: row;
+  /* align-items: center;
+  justify-content: center; */
+  width: 100%;
+  margin-left: 2em;
+  
+}
+.main_text{
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center; 
+  padding: 1em;
+  width: auto;
+  background-color: white;
+  border-radius: 0.25rem;
+  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: #6a4ea1;
+  
+  
+}
+.main_text1{
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center; 
+  padding: 2em;
+  width: auto;
+  background-color: white;
+  border-radius: 0.25rem;
+  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: #6a4ea1;
+  
+  
+  
+}
+.text{
+  padding: 1em;
+  font-size: 20px;
+  font-weight: 400;
+  text-align: center;
+  color: #EF8D9C;
+}
+.text2{
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+  color: #b693fe;
+}
+.text3{
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+  color: #b693fe;
+  padding-bottom: 1.7em;
+  
+}
+
+.h1 {
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.img {
+  height: 15em;
+  width: 530px;
+  
+  
+}
+.img1 {
+  height: 8em;
+  width: 180px;
+  
+
+  
+  
+}
+.img2 {
+  height: 8em;
+  width: 190px;
+  
+
+  
+  
+}
+.img_name{
+  font-weight:bold ;
+  font-size: 17px;
+}
+
+
+.btn {
+  color: #ffffff;
+  padding: 0.8rem;
+  font-size: 14px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  font-weight: 400;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+}
+
+.btn:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.cards {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cards_item {
+  display: flex;
+  padding: 1rem;
+  margin-left: 2px;
+  width: 100%;
+}
+.about-team{
+  display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+    font-weight: 200;
+    text-align: center;
+    padding: 1em;
+    width: 100%;
+    background-color: white;
+    border-radius: 0.25rem;
+    box-shadow: 0 20px 40px -14px rgb(0 0 0 / 25%);
+    overflow: hidden;
+    color: #6a4ea1;
+    height: 25em;
+}
+/* @media (min-width: 40rem) {
+  .cards_item {
+    width: 50%;
+  }
+}
+
+@media (min-width: 56rem) {
+  .cards_item {
+    width: 33.3333%;
+  }
+} */
+
+.card {
+  width: auto;
+  background-color: white;
+  border-radius: 0.25rem;
+  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.card_content {
+  padding: 1rem;
+  background: linear-gradient(to bottom left, #978def 40%, #08a2f6 100%);
+}
+
+.card_title {
+  color: #ffffff;
+  font-size: 2.1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  margin: 0px;
+  text-align: center;
+}
+
+.card_text {
+  color: #ffffff;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;    
+  font-weight: 400;
+}
+.card_content1 {
+  padding: 1rem;
+  background: linear-gradient(to bottom left, #8d97ef 40%, #085df0 100%);
+  width: 100%;
+}
+
+.card_title1 {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  margin: 0px;
+}
+
+.card_text1 {
+  color: #ffffff;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;    
+  font-weight: 400;
+}
+.icon{
+  width: 89px;
+  height: 50px;
+  margin-left: 34px;
+  margin-bottom: 2px;
+  padding-top: 0px;
+  font-weight: 14px;
+}
+.icon_im{
+  width: 89px;
+    height: 39px;
+    margin-left: 50px;
+    margin-bottom: 4px;
+    padding-top: 0px;
+}
+.icon1{
+  font-size: 14px;
+    width: 100%;
+    margin-right: 12px;
+
+}
+.icon2{
+  font-size: 14px;
+    width: 100%;
+    margin-right: 12px;
+
+}
+.icon_one{
+  width: 60%;
+  padding-top: 1em;
+  display: flex;
+  flex-direction: row;
+  margin-left: 20px;
+}
+.icon_git{
+  font-size: 14px;
+  width: 100%;
+  margin-right: 12px;
+
+
+}
+.icon_im_git{
+  width: 89px;
+  height: 39px;
+  margin-left: 50px;
+  margin-bottom: 4px;
+  padding-top: 0px;
+  
+}
+.git{
+  width: 60%;
+  padding-top: 1em;
+  display: flex;
+  flex-direction: row;
+  margin-left: 20px;
+
+}
+
